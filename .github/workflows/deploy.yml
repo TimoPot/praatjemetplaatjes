@@ -35,7 +35,7 @@ jobs:
         uses: actions/configure-pages@v5
       - uses: oven-sh/setup-bun@v1
       - run: bun i
-      - run: bun run build
+      - run: bun run deploy
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
