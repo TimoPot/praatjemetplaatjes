@@ -11,15 +11,15 @@
         }
       },
       "root": "",
-      "sourceRoot": "src/apps",
+      "sourceRoot": "projects",
       "prefix": "lmz",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/laatmaarzien",
-            "index": "src/apps/lmz/index.html",
-            "browser": "src/apps/lmz/main.ts",
+            "index": "projects/lmz/index.html",
+            "browser": "projects/lmz/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -32,7 +32,8 @@
               }
             ],
             "styles": [
-              "src/apps/lmz/styles.scss"
+              "node_modules/modern-normalize/modern-normalize.css",
+              "projects/lmz/styles.scss"
             ],
             "scripts": []
           },
@@ -92,9 +93,43 @@
               }
             ],
             "styles": [
-              "src/apps/lmz/styles.scss"
+              "node_modules/modern-normalize/modern-normalize.css",
+              "projects/lmz/styles.scss"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "ui": {
+      "projectType": "library",
+      "root": "projects/ui",
+      "sourceRoot": "projects/ui/src",
+      "prefix": "ui",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/ui/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }
