@@ -9,5 +9,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'Laat Maar Zien Dan';
+  title = 'Hallo Martin, dit is `Laat Maar Zien Dan`';
 }
