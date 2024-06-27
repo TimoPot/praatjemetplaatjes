@@ -3,6 +3,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "projects",
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
@@ -20,9 +21,7 @@
     "module": "ES2022",
     "useDefineForClassFields": false,
     "paths": {
-      "ui": [
-        "./dist/ui"
-      ]
+      "@ui/*": ["ui/src/*"]
     },
     "lib": [
       "ES2022",
