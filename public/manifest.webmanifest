@@ -1,8 +1,8 @@
 {
   "name": "Laat Maar Zien",
   "short_name": "Laat Maar Zien",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#424242",
+  "background_color": "#424242",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
