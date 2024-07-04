@@ -8,7 +8,7 @@
     "deploy": "ng build --base-href=/laatmaarzien/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "start-pwa": "http-server -p 8080 -c-1 dist/laatmaarzien/browser"
+    "start-pwa": "http-server --proxy http://localhost:8080? -c-1 dist/laatmaarzien/browser"
   },
   "private": true,
   "dependencies": {
