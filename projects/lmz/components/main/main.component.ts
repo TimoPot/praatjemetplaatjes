@@ -1,4 +1,5 @@
 import { UiMainComponent } from '@ui/components/main/main.component';
+import { UiTopbarComponent } from '@ui/components/topbar/topbar.component';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
@@ -8,6 +9,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, UiMainComponent],
+  imports: [CommonModule, UiMainComponent, UiTopbarComponent],
 })
 export class MainComponent {}
