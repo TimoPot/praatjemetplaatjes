@@ -4,11 +4,10 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'lmz-main',
-  standalone: true,
-  templateUrl: './main.component.html',
-  styleUrl: './main.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, UiMainComponent, UiTopbarComponent],
+    selector: 'lmz-main',
+    templateUrl: './main.component.html',
+    styleUrl: './main.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, UiMainComponent, UiTopbarComponent]
 })
 export class MainComponent {}

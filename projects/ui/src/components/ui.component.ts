@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ui-ui',
-  standalone: true,
-  imports: [],
-  template: `
+    selector: 'ui-ui',
+    imports: [],
+    template: `
     <p>
       ui works!
     </p>
   `,
-  styles: ``
+    styles: ``
 })
 export class UiComponent {
 
