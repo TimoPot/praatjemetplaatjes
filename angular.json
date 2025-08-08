@@ -35,6 +35,9 @@
               "node_modules/modern-normalize/modern-normalize.css",
               "projects/lmz/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["projects/ui/src/styles"]
+            },
             "scripts": []
           },
           "configurations": {
