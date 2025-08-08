@@ -1,11 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
-$gray-900: rgb(66, 66, 66);
-$gray-700: rgb(99, 99, 99);
-$gray-400: rgb(128, 128, 128);
-$white: white;
-$black: black;
+@import "../ui/src/styles/vars";
 
-$background-color-main: $gray-700;
+/* You can add global styles to this file, and also import other style files */
+// $gray-900: rgb(66, 66, 66);
+// $gray-700: rgb(99, 99, 99);
+// $gray-400: rgb(128, 128, 128);
+// $white: white;
+// $black: black;
+
+// $background-color-main: $gray-700;
 
 html,
 body {
