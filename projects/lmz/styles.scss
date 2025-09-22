@@ -1,4 +1,6 @@
-@import "../ui/src/styles/vars";
+@use "../ui/src/styles/vars";
+@use "../ui/src/styles/colors";
+
 
 /* You can add global styles to this file, and also import other style files */
 // $gray-900: rgb(66, 66, 66);
@@ -11,7 +13,7 @@
 
 html,
 body {
-  background-color: $background-color-main;
+  background-color: colors.$background-color-main;
   height: 100%;
   width: 100%;
 }
