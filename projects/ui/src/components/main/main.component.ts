@@ -1,12 +1,17 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  Input,
+} from '@angular/core';
 
 @Component({
   selector: 'ui-main',
-  standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UiMainComponent {}
+export class UiMainComponent {
+  sectionTitle = input('Titel');
+}

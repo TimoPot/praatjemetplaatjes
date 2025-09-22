@@ -1,13 +1,11 @@
-import { UiMainComponent } from '@ui/components/main/main.component';
-import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { UICard, UiMainComponent, UiTopbarComponent } from '@ui/public-api';
 
 @Component({
   selector: 'lmz-main',
-  standalone: true,
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, UiMainComponent],
+  imports: [UiMainComponent, UiTopbarComponent, UICard],
 })
 export class MainComponent {}
