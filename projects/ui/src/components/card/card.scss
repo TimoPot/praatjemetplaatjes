@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+
+  .ui-card {
+    display: flex;
+    flex-direction: column;
+
+    border: solid 1px yellow;
+    border-radius: 0.5rem;
+    padding: 1rem;
+
+    min-width: 284px;
+    max-width: 284px;
+  }
+}

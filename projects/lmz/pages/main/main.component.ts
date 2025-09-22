@@ -1,13 +1,11 @@
-import { UiMainComponent } from '@ui/components/main/main.component';
-import { UiTopbarComponent } from '@ui/components/topbar/topbar.component';
-
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { UICard, UiMainComponent, UiTopbarComponent } from '@ui/public-api';
 
 @Component({
-    selector: 'lmz-main',
-    templateUrl: './main.component.html',
-    styleUrl: './main.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [UiMainComponent, UiTopbarComponent]
+  selector: 'lmz-main',
+  templateUrl: './main.component.html',
+  styleUrl: './main.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [UiMainComponent, UiTopbarComponent, UICard],
 })
 export class MainComponent {}

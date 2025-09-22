@@ -1,4 +1,11 @@
 :host {
   display: flex;
   flex-direction: column;
+  flex: 1 1 auto;
+  height: 100vh;
+
+  ui-main {
+    display: flex;
+    flex-direction: row;
+  }
 }
