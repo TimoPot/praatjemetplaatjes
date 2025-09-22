@@ -7,7 +7,10 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "inlineStyle": false,
+          "style": "scss",
+          "changeDetection": "OnPush",
+          "standalone": true
         }
       },
       "root": "",
@@ -20,9 +23,7 @@
             "outputPath": "dist/laatmaarzien",
             "index": "projects/lmz/index.html",
             "browser": "projects/lmz/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "projects/lmz/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -83,10 +84,7 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -110,9 +108,7 @@
       "sourceRoot": "projects/ui/src",
       "prefix": "ui",
       "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
+        "@schematics/angular:component": {}
       },
       "architect": {
         "build": {
@@ -134,10 +130,7 @@
           "builder": "@angular/build:karma",
           "options": {
             "tsConfig": "projects/ui/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
+            "polyfills": ["zone.js", "zone.js/testing"]
           }
         }
       }
@@ -148,13 +141,13 @@
   },
   "schematics": {
     "@schematics/angular:component": {
-      "type": "component"
+      "type": ""
     },
     "@schematics/angular:directive": {
-      "type": "directive"
+      "type": ""
     },
     "@schematics/angular:service": {
-      "type": "service"
+      "type": ""
     },
     "@schematics/angular:guard": {
       "typeSeparator": "."
