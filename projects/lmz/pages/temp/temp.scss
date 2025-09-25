@@ -1,0 +1,73 @@
+:host {
+  display: flex;
+  flex: 1 1 auto;
+
+  .page {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+  }
+
+  .top-bar,
+  .nav-bar,
+  .bottom-bar {
+    display: flex;
+    flex: 0 0 3rem;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 1rem;
+    background: lightblue;
+
+    h1 {
+      margin: 0;
+    }
+  }
+
+  .nav-bar {
+    background: blue;
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex: 1 1 auto;
+
+    padding: 1rem;
+
+    overflow: auto;
+    background: darkslategrey;
+
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+
+      padding: 0;
+      margin: 0 0 auto 0;
+
+      gap: 1rem;
+
+      list-style: none;
+
+      li {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      article {
+        flex: 0 0 15rem;
+        min-width: 10rem;
+        background: lightgrey;
+      }
+    }
+  }
+
+  .bottom-bar {
+    background: darkblue;
+  }
+}

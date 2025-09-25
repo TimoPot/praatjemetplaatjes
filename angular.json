@@ -5,14 +5,7 @@
   "projects": {
     "laatmaarzien": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "inlineStyle": false,
-          "style": "scss",
-          "changeDetection": "OnPush",
-          "standalone": true
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "projects",
       "prefix": "lmz",

@@ -2,7 +2,8 @@
 @use "../ui/src/styles/colors";
 
 html,
-body {
+body,
+app-root {
   background-color: colors.$background-color-main;
   color: colors.$text-color-main;
   height: 100%;
