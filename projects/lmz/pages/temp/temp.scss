@@ -62,12 +62,36 @@
       article {
         flex: 0 0 15rem;
         min-width: 10rem;
-        background: lightgrey;
+
+        border: solid 2px grey;
+        border-radius: 0.5rem;
+
+        padding: 0.5rem;
+
+        h3 {
+          margin: 0.5rem 0 0.5rem 0;
+        }
       }
     }
   }
 
   .bottom-bar {
     background: darkblue;
+  }
+
+  button {
+    all: unset;
+    cursor: pointer;
+    // border: solid 2px red;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+
+    color: black;
+    font-size: x-large;
+
+    justify-content: center;
+    align-items: center;
   }
 }
