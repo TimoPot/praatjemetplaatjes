@@ -17,8 +17,8 @@
     }
 
     article {
-      flex: 0 0 15rem;
-      min-width: 10rem;
+      flex: 0 0 20rem;
+      min-width: 17.25rem;
 
       border: solid 2px grey;
       border-radius: 0.5rem;
@@ -29,6 +29,12 @@
 
       h3 {
         margin: 0.5rem 0 0.5rem 0;
+      }
+
+      img {
+        width: 16rem;
+        height: 16rem;
+        object-fit: contain;
       }
     }
   }
