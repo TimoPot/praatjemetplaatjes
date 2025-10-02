@@ -20,6 +20,6 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: '/main', pathMatch: 'full' },
+  { path: '', redirectTo: '/temp/categories', pathMatch: 'full' },
   { path: '**', component: MainComponent },
 ];

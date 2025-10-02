@@ -32,10 +32,13 @@
         text-transform: uppercase; // TODO instelling uppercase/normaal/lowercase
       }
 
-      img {
-        width: 16rem;
-        height: 16rem;
-        object-fit: contain;
+      picture {
+        img {
+          width: 16rem;
+          height: 16rem;
+          object-fit: contain;
+          clip-path: rect(0, 16rem, 16rem, 0);
+        }
       }
     }
   }
