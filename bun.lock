@@ -15,7 +15,6 @@
         "@angular/service-worker": "^20.3.1",
         "modern-normalize": "^3.0.1",
         "rxjs": "~7.8.2",
-        "spoken": "^1.1.17",
         "tslib": "^2.8.1",
         "zone.js": "~0.15.1",
       },
@@ -2167,8 +2166,6 @@
     "spdy": ["spdy@4.0.2", "", { "dependencies": { "debug": "^4.1.0", "handle-thing": "^2.0.0", "http-deceiver": "^1.2.7", "select-hose": "^2.0.0", "spdy-transport": "^3.0.0" } }, "sha512-r46gZQZQV+Kl9oItvl1JZZqJKGr+oEkB08A6BzkiR7593/7IbtuncXHd2YoYeTsG4157ZssMu9KYvUHLcjcDoA=="],
 
     "spdy-transport": ["spdy-transport@3.0.0", "", { "dependencies": { "debug": "^4.1.0", "detect-node": "^2.0.4", "hpack.js": "^2.1.6", "obuf": "^1.1.2", "readable-stream": "^3.0.6", "wbuf": "^1.7.3" } }, "sha512-hsLVFE5SjA6TCisWeJXFKniGGOpBgMLmerfO2aCyCU5s7nJ/rpAepqmFifv/GCbSbueEeAJJnmSQ2rKC/g8Fcw=="],
-
-    "spoken": ["spoken@1.1.17", "", {}, "sha512-cERSTzRpvxCLCAAXEaO0Nt8ksXiDNxqNFwW2WnxFkkXaXLIdFc/GXIzG3OWzAZ4Nre+1UsPLgMrFXWZg3t+G0w=="],
 
     "sprintf-js": ["sprintf-js@1.0.3", "", {}, "sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g=="],
 
