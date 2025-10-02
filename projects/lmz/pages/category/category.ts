@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { Cards } from 'projects/lmz/components/cards/cards';
 
 @Component({
   selector: 'lmz-category',
@@ -6,5 +7,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./category.scss'],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [Cards],
 })
-export class Category {}
+export class Category {
+  data = signal([
+    { text: 'Huis', src: './images/huis.jpg' },
+    { text: 'Boom', src: './images/boom.jpg' },
+    { text: 'Auto', src: './images/auto.png' },
+  ]);
+}

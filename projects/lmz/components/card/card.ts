@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  output,
+} from '@angular/core';
 
 @Component({
   selector: 'lmz-card',
@@ -11,11 +16,7 @@ export class Card {
   readonly text = input.required<string>();
   readonly src = input.required<string>();
 
-  speak(text: string) {
-    if (!text) return;
+  readonly category = input<string>();
 
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'nl-NL';
-    speechSynthesis.speak(utterance);
-  }
+  readonly enounce = output<string>();
 }

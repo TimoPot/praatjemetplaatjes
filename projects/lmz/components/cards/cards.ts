@@ -1,5 +1,11 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+} from '@angular/core';
 import { Card } from '../card/card';
+import { SpeechService } from 'projects/lmz/services/speech-service';
 
 @Component({
   selector: 'lmz-cards',
@@ -10,5 +16,7 @@ import { Card } from '../card/card';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Cards {
-  cards = input.required<{ text: string; src: string }[]>();
+  cards = input.required<{ category?: string; text: string; src: string }[]>();
+
+  speechService = inject(SpeechService);
 }

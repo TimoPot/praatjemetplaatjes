@@ -1,5 +1,5 @@
 <li>
-  <article (click)="speak(text()) ">
+  <article (click)="this.enounce.emit(text())">
     <h3>{{text()}}</h3>
     <picture>
       <source srcset="{{src()}}" type="image/jpg" />
@@ -11,5 +11,8 @@
         alt="{{text()}}"
       />
     </picture>
+    @if(category()) {
+    <button>{{category()}}</button>
+    }
   </article>
 </li>
