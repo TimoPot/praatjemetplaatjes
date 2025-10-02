@@ -1,0 +1,7 @@
+<ol class="list">
+  @for(card of cards(); track card.text ) {
+  <lmz-card [text]="card.text" [src]="card.src"></lmz-card>
+  }@empty {
+  <li>There are no items.</li>
+  }
+</ol>

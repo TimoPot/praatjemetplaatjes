@@ -1,0 +1,15 @@
+<li>
+  <article (click)="speak(text()) ">
+    <h3>{{text()}}</h3>
+    <picture>
+      <source srcset="{{src()}}" type="image/jpg" />
+      <img
+        src="{{src()}}"
+        type="image/jpg"
+        width="256"
+        height="256"
+        alt="{{text()}}"
+      />
+    </picture>
+  </article>
+</li>

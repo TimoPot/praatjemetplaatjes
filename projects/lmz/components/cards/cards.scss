@@ -1,0 +1,13 @@
+:host {
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+
+    padding: 0;
+    padding-bottom: 1rem;
+
+    gap: 1rem;
+
+    list-style: none;
+  }
+}

@@ -1,14 +1,12 @@
 import { Routes } from '@angular/router';
 import { Categories } from '@pages/categories/categories';
 import { Category } from '@pages/category/category';
-import { MainComponent } from '@pages/main/main.component';
-import { Temp } from '@pages/temp/temp';
+import { Main } from '@pages/main/main';
 
 export const routes: Routes = [
-  { path: 'main', component: MainComponent },
   {
-    path: 'temp',
-    component: Temp,
+    path: 'main',
+    component: Main,
     children: [
       {
         path: 'categories',
@@ -20,6 +18,6 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: '/temp/categories', pathMatch: 'full' },
-  { path: '**', component: MainComponent },
+  { path: '', redirectTo: '/main/categories', pathMatch: 'full' },
+  { path: '**', component: Main },
 ];

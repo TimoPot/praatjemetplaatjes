@@ -1,11 +1,11 @@
 {
-  "name": "Laat Maar Zien",
-  "short_name": "Laat Maar Zien",
+  "name": "Praatje met plaatjes",
+  "short_name": "Praatje met plaatjes",
   "theme_color": "#424242",
   "background_color": "#424242",
   "display": "standalone",
   "scope": "./",
-  "start_url": "./temp/categories",
+  "start_url": "./",
   "icons": [
     {
       "src": "icons/icon-72x72.png",

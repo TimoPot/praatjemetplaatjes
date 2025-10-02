@@ -1,0 +1,33 @@
+:host {
+  li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  article {
+    flex: 0 0 20rem;
+    min-width: 17.25rem;
+
+    border: solid 2px grey;
+    border-radius: 0.5rem;
+
+    padding: 0.5rem;
+
+    background-color: #444;
+
+    h3 {
+      margin: 0.5rem 0 0.5rem 0;
+      text-transform: uppercase; // TODO instelling uppercase/normaal/lowercase
+    }
+
+    picture {
+      img {
+        width: 16rem;
+        height: 16rem;
+        object-fit: contain;
+        clip-path: rect(0, 16rem, 16rem, 0);
+      }
+    }
+  }
+}
