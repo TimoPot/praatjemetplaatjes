@@ -11,10 +11,12 @@
         alt="{{text()}}"
       />
     </picture>
+    @if(category()) {
+    <nav>
+      <button (click)="navigateIntoCategory(category()!)">
+        Bekijk {{category()}}
+      </button>
+    </nav>
+    }
   </article>
-  @if(category()) {
-  <nav>
-    <a routerLink="/category/{{category()}}">{{category()}}</a>
-  </nav>
-  }
 </li>
