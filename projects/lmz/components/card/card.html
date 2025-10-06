@@ -1,16 +1,18 @@
 <li>
   <article (click)="this.enounce.emit(text())">
     <h3>{{text()}}</h3>
-    <picture>
-      <source srcset="{{src()}}" type="image/jpg" />
-      <img
-        src="{{src()}}"
-        type="image/jpg"
-        width="256"
-        height="256"
-        alt="{{text()}}"
-      />
-    </picture>
+    <div class="picture-container">
+      <picture>
+        <source srcset="{{src()}}" type="image/jpg" />
+        <img
+          src="{{src()}}"
+          type="image/jpg"
+          width="256"
+          height="auto"
+          alt="{{text()}}"
+        />
+      </picture>
+    </div>
     @if(category()) {
     <nav>
       <button (click)="navigateIntoCategory(category()!)">

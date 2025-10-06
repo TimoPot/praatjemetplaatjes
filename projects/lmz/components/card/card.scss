@@ -25,22 +25,35 @@
       text-transform: uppercase; // TODO instelling uppercase/normaal/lowercase
     }
 
-    picture {
-      img {
-        width: 16rem;
-        height: 16rem;
-        object-fit: contain;
-        clip-path: rect(0, 16rem, 16rem, 0);
+    .picture-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 16rem;
+      height: 16rem;
+
+      picture {
+        img {
+          object-fit: contain;
+          border-radius: 6px;
+        }
       }
     }
 
     nav > button {
       height: 2rem;
       width: 100%;
-      background-color: transparent;
+      background-color: rgb(44, 44, 44);
       color: white;
       border: solid 2px grey;
+      border-radius: 6px;
       cursor: pointer;
+
+      &:hover,
+      &:focus {
+        background-color: lightgray;
+        color: black;
+      }
     }
   }
 }
