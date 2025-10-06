@@ -13,7 +13,7 @@ export const routes: Routes = [
         component: Categories,
       },
       {
-        path: 'category',
+        path: 'category/:id',
         component: Category,
       },
     ],
