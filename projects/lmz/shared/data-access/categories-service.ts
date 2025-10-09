@@ -1,11 +1,12 @@
 import { computed, effect, Injectable, signal } from '@angular/core';
 import { CategoriesData } from './categories';
 import { of, Subject, takeUntil } from 'rxjs';
+import { Category } from '../interfaces/category';
 
 export interface CategoriesState {
-  selectedCategory?: string;
-  allCategories: typeof CategoriesData;
-  mainCategories: typeof CategoriesData;
+  selectedCategory?: number | undefined;
+  allCategories: Category[];
+  mainCategories: Category[];
 }
 
 @Injectable({
@@ -26,16 +27,17 @@ export class CategoriesService {
   });
 
   // sources
-  select$ = new Subject<string | undefined>();
+  select$ = new Subject<number | undefined>();
   private categories$ = of(CategoriesData);
 
   constructor() {
     // reducers
     // Update selected category
-    this.select$.subscribe((category) => {
+    this.select$.subscribe((id: number | undefined) => {
+      console.log('Selected category:', id);
       this.state.update((state) => ({
         ...state,
-        selectedCategory: category,
+        selectedCategory: id,
       }));
     });
 

@@ -7,6 +7,7 @@ import {
 import { Card } from '../card/card';
 import { SpeechService } from 'projects/lmz/services/speech-service';
 import { CommonModule } from '@angular/common';
+import { Category } from 'projects/lmz/shared/interfaces/category';
 
 @Component({
   selector: 'lmz-cards',
@@ -17,7 +18,7 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Cards {
-  cards = input.required<{ category?: string; text: string; src: string }[]>();
+  cards = input.required<Category[]>();
 
   speechService = inject(SpeechService);
 }

@@ -6,7 +6,6 @@ import {
   signal,
 } from '@angular/core';
 import { Cards } from 'projects/lmz/components/cards/cards';
-import { CategoriesData } from 'projects/lmz/shared/data-access/categories';
 import { CategoriesService } from 'projects/lmz/shared/data-access/categories-service';
 
 @Component({

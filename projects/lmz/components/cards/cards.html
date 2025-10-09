@@ -1,6 +1,7 @@
 <ol class="list">
   @for(card of cards(); track card.text ) {
   <lmz-card
+    [id]="card.id"
     [category]="card.category"
     [text]="card.text"
     [src]="card.src"

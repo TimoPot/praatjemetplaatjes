@@ -17,15 +17,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class Card {
   readonly text = input.required<string>();
   readonly src = input.required<string>();
-
+  readonly id = input<number>();
   readonly category = input<string>();
 
   readonly enounce = output<string>();
 
-  private route = inject(ActivatedRoute);
   private router = inject(Router);
 
-  navigateIntoCategory(category: string) {
-    this.router.navigate(['category', category]);
+  navigateIntoCategory(id: number) {
+    debugger;
+    this.router.navigate(['main/category', id]);
   }
 }
