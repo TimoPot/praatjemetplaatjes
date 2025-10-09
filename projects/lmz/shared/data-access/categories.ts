@@ -1,0 +1,47 @@
+export const CategoriesData = [
+  {
+    id: 1,
+    isMainCategory: true,
+    category: 'alledaagse dingen',
+    text: 'Alle daagse dingen',
+    src: './images/huis.jpg',
+    subCategories: [2],
+  },
+  {
+    id: 2,
+    isMainCategory: false,
+    category: 'huis',
+    text: 'Huis',
+    src: './images/boom.jpg',
+    subCategories: [3, 4],
+  },
+  {
+    id: 3,
+    isMainCategory: false,
+    category: 'keuken',
+    text: 'Keuken',
+    src: './images/keuken.png',
+  },
+  {
+    id: 4,
+    isMainCategory: false,
+    category: 'woonkamer',
+    text: 'Woonkamer',
+    src: './images/woonkamer.png',
+  },
+  {
+    id: 5,
+    isMainCategory: true,
+    category: 'natuur',
+    text: 'Natuur',
+    src: './images/natuur.png',
+    subCategories: [6],
+  },
+  {
+    id: 6,
+    isMainCategory: false,
+    category: 'water',
+    text: 'Water',
+    src: './images/water.png',
+  },
+];
