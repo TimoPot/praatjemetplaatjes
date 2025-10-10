@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { Cards } from 'projects/lmz/components/cards/cards';
-import { CategoriesService } from 'projects/lmz/shared/data-access/categories-service';
+import { Cards } from 'projects/pmp/components/cards/cards';
+import { CategoriesService } from 'projects/pmp/shared/data-access/categories-service';
 
 @Component({
-  selector: 'lmz-categories',
+  selector: 'pmp-categories',
   templateUrl: './categories.html',
   imports: [Cards],
   standalone: true,

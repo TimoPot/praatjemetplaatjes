@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Cards } from 'projects/lmz/components/cards/cards';
-import { CategoriesService } from 'projects/lmz/shared/data-access/categories-service';
+import { Cards } from 'projects/pmp/components/cards/cards';
+import { CategoriesService } from 'projects/pmp/shared/data-access/categories-service';
 
 @Component({
-  selector: 'lmz-category',
+  selector: 'pmp-category',
   templateUrl: './category.html',
   styleUrls: ['./category.scss'],
   standalone: true,

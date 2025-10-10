@@ -7,10 +7,10 @@ import {
   output,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { Category } from 'projects/lmz/shared/interfaces/category';
+import { Category } from 'projects/pmp/shared/interfaces/category';
 
 @Component({
-  selector: 'lmz-card',
+  selector: 'pmp-card',
   templateUrl: './card.html',
   styleUrls: ['./card.scss'],
   standalone: true,

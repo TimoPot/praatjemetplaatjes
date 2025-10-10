@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CategoriesService } from 'projects/lmz/shared/data-access/categories-service';
+import { CategoriesService } from 'projects/pmp/shared/data-access/categories-service';
 
 @Component({
-  selector: 'lmz-main',
+  selector: 'pmp-main',
   templateUrl: './main.html',
   styleUrl: './main.scss',
   standalone: true,

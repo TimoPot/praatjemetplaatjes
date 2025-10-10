@@ -22,7 +22,7 @@
     "useDefineForClassFields": false,
     "paths": {
       "@ui/*": ["projects/ui/src/*"],
-      "@pages/*": ["projects/lmz/pages/*"]
+      "@pages/*": ["projects/pmp/pages/*"]
     },
     "lib": ["ES2022", "dom"]
   },

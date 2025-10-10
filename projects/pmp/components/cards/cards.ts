@@ -5,12 +5,12 @@ import {
   input,
 } from '@angular/core';
 import { Card } from '../card/card';
-import { SpeechService } from 'projects/lmz/services/speech-service';
+import { SpeechService } from 'projects/pmp/services/speech-service';
 import { CommonModule } from '@angular/common';
-import { Category } from 'projects/lmz/shared/interfaces/category';
+import { Category } from 'projects/pmp/shared/interfaces/category';
 
 @Component({
-  selector: 'lmz-cards',
+  selector: 'pmp-cards',
   templateUrl: './cards.html',
   styleUrls: ['./cards.scss'],
   imports: [Card, CommonModule],
