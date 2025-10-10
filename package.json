@@ -1,14 +1,14 @@
 {
-  "name": "laatmaarzien",
+  "name": "praatjemetplaatjes",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "deploy": "ng build --base-href=/laatmaarzien/",
+    "deploy": "ng build --base-href=/praatjemetplaatjes/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "start-pwa": "http-server --proxy http://localhost:8080? -c-1 dist/laatmaarzien/browser"
+    "start-pwa": "http-server --proxy http://localhost:8080? -c-1 dist/praatjemetplaatjes/browser"
   },
   "private": true,
   "dependencies": {
