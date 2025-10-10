@@ -32,6 +32,11 @@ export class CategoriesService {
   subCategoriesOfSelected = computed(
     () => this.state().subCategoriesOfSelected || []
   );
+  selectedCategory = computed(() =>
+    this.state().allCategories.find(
+      (c) => c.id === this.state().selectedCategory
+    )
+  );
 
   // state
   private state = signal<CategoriesState>({
