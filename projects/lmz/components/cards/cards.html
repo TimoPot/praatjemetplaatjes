@@ -2,7 +2,7 @@
   @for(card of cards(); track card.text ) {
   <lmz-card
     [id]="card.id"
-    [category]="card.category"
+    [category]="card.name"
     [text]="card.text"
     [src]="card.src"
     (enounce)="this.speechService.speak($event)"

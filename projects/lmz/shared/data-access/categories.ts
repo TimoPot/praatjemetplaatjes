@@ -4,7 +4,7 @@ export const CategoriesData = [
   {
     id: 1,
     isMainCategory: true,
-    category: 'alledaagse dingen',
+    name: 'alledaagse dingen',
     text: 'Alle daagse dingen',
     src: './images/huis.jpg',
     subCategories: [2],
@@ -12,7 +12,7 @@ export const CategoriesData = [
   {
     id: 2,
     isMainCategory: false,
-    category: 'huis',
+    name: 'huis',
     text: 'Huis',
     src: './images/boom.jpg',
     subCategories: [3, 4],
@@ -21,7 +21,7 @@ export const CategoriesData = [
   {
     id: 3,
     isMainCategory: false,
-    category: 'keuken',
+    name: 'keuken',
     text: 'Keuken',
     src: './images/keuken.png',
   } as Category,
@@ -29,7 +29,7 @@ export const CategoriesData = [
   {
     id: 4,
     isMainCategory: false,
-    category: 'woonkamer',
+    name: 'woonkamer',
     text: 'Woonkamer',
     src: './images/woonkamer.png',
   } as Category,
@@ -37,7 +37,7 @@ export const CategoriesData = [
   {
     id: 5,
     isMainCategory: true,
-    category: 'natuur',
+    name: 'natuur',
     text: 'Natuur',
     src: './images/natuur.webp',
     subCategories: [6],
@@ -46,7 +46,7 @@ export const CategoriesData = [
   {
     id: 6,
     isMainCategory: false,
-    category: 'water',
+    name: 'water',
     text: 'Water',
     src: './images/water.png',
   } as Category,
