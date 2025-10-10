@@ -1,6 +1,6 @@
 <ol class="list">
   @for(card of cards(); track card.text ) {
-  <li class="list-item">
+  <li class="list-item scale-in">
     <pmp-card
       [category]="card"
       (enounce)="this.speechService.speak($event)"
