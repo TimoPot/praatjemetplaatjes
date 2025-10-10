@@ -5,7 +5,8 @@ import {
   input,
   output,
 } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { Category } from 'projects/lmz/shared/interfaces/category';
 
 @Component({
   selector: 'lmz-card',
@@ -15,17 +16,13 @@ import { ActivatedRoute, Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Card {
-  readonly text = input.required<string>();
-  readonly src = input.required<string>();
-  readonly id = input<number>();
-  readonly category = input<string>();
+  readonly category = input<Category>();
 
   readonly enounce = output<string>();
 
   private router = inject(Router);
 
   navigateIntoCategory(id: number) {
-    debugger;
     this.router.navigate(['main/category', id]);
   }
 }

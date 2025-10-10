@@ -1,22 +1,36 @@
-import { computed, effect, Injectable, signal } from '@angular/core';
+import {
+  computed,
+  DestroyRef,
+  effect,
+  inject,
+  Injectable,
+  signal,
+} from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { CategoriesData } from './categories';
-import { of, Subject, takeUntil } from 'rxjs';
+import { of, Subject } from 'rxjs';
 import { Category } from '../interfaces/category';
 
 export interface CategoriesState {
   selectedCategory?: number | undefined;
   allCategories: Category[];
   mainCategories: Category[];
+  subCategoriesOfSelected?: Category[];
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class CategoriesService {
+  private destroyRef = inject(DestroyRef);
+
   // selectors
   allCategories = computed(() => this.state().allCategories);
   mainCategories = computed(() =>
     this.state().mainCategories.filter((c) => c.isMainCategory)
+  );
+  subCategoriesOfSelected = computed(
+    () => this.state().subCategoriesOfSelected || []
   );
 
   // state
@@ -24,6 +38,7 @@ export class CategoriesService {
     selectedCategory: undefined,
     allCategories: [],
     mainCategories: [],
+    subCategoriesOfSelected: [],
   });
 
   // sources
@@ -33,17 +48,29 @@ export class CategoriesService {
   constructor() {
     // reducers
     // Update selected category
-    this.select$.subscribe((id: number | undefined) => {
-      console.log('Selected category:', id);
-      this.state.update((state) => ({
-        ...state,
-        selectedCategory: id,
-      }));
-    });
+    this.select$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((id: number | undefined) => {
+        console.log('Selected category:', id);
+        // get subcategories id's of selected category
+        const subCategoriesIdsOfSelected = this.state().allCategories.filter(
+          (c) => c.id === id
+        )[0]?.subCategories;
+        // get subcategories of selected subcategories id's
+        const subCategoriesOfSelected = this.state().allCategories.filter((c) =>
+          subCategoriesIdsOfSelected?.includes(c.id)
+        );
+
+        this.state.update((state) => ({
+          ...state,
+          selectedCategory: id,
+          subCategoriesOfSelected: subCategoriesOfSelected,
+        }));
+      });
 
     // Load categories
     this.categories$
-      //   .pipe(takeUntilDestroyed())
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((categories) => {
         this.state.update((state) => ({
           ...state,

@@ -1,10 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  signal,
-} from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Cards } from 'projects/lmz/components/cards/cards';
 import { CategoriesService } from 'projects/lmz/shared/data-access/categories-service';
 
@@ -20,13 +15,22 @@ export class Category {
   private route = inject(ActivatedRoute);
   private categoriesService = inject(CategoriesService);
 
+  // Only show hoofd categories (= main categories)
+  subCategories = this.categoriesService.subCategoriesOfSelected;
+
   constructor() {
-    // Access route parameters from snapshot
-    const selected = this.route.snapshot.paramMap.get('id');
-    this.categoriesService.select$.next(
-      selected ? Number(selected) : undefined
-    );
+    // React to route parameter changes
+    this.route.paramMap.subscribe((params) => {
+      const id = params.get('id');
+      this.setSelectedCategory(id ? Number(id) : undefined);
+    });
   }
 
-  data = signal([]);
+  /**
+   * set the selected category id in the state
+   */
+  private setSelectedCategory(id: number | undefined) {
+    console.log('Setting selected category to:', id);
+    this.categoriesService.select$.next(id ? Number(id) : undefined);
+  }
 }

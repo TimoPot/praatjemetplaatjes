@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  inject,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Cards } from 'projects/lmz/components/cards/cards';
 import { CategoriesService } from 'projects/lmz/shared/data-access/categories-service';
 
@@ -16,8 +10,8 @@ import { CategoriesService } from 'projects/lmz/shared/data-access/categories-se
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Categories {
-  private categoryService = inject(CategoriesService);
+  private categoriesService = inject(CategoriesService);
 
   // Only show hoofd categories (= main categories)
-  mainCategories = this.categoryService.mainCategories;
+  mainCategories = this.categoriesService.mainCategories;
 }

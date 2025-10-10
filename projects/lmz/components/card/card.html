@@ -1,22 +1,24 @@
 <li>
-  <article (click)="this.enounce.emit(text())">
-    <h3>{{text()}}</h3>
-    <div class="picture-container">
+  @let category = this.category();
+
+  <article>
+    <h3>{{category!.text}}</h3>
+    <div class="picture-container" (click)="this.enounce.emit(category!.text)">
       <picture>
-        <source srcset="{{src()}}" type="image/jpg" />
+        <source srcset="{{category!.src}}" type="image/jpg" />
         <img
-          src="{{src()}}"
+          src="{{category!.src}}"
           type="image/jpg"
           width="256"
           height="auto"
-          alt="{{text()}}"
+          alt="{{category!.text}}"
         />
       </picture>
     </div>
-    @if(category()) {
+    @if(category?.subCategories) {
     <nav>
-      <button (click)="navigateIntoCategory(id()!)">
-        Bekijk {{category()}}
+      <button (click)="navigateIntoCategory(category!.id)">
+        Bekijk {{category!.text}}
       </button>
     </nav>
     }

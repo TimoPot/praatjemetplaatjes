@@ -1,10 +1,7 @@
 <ol class="list">
   @for(card of cards(); track card.text ) {
   <lmz-card
-    [id]="card.id"
-    [category]="card.name"
-    [text]="card.text"
-    [src]="card.src"
+    [category]="card"
     (enounce)="this.speechService.speak($event)"
   ></lmz-card>
   }@empty {
