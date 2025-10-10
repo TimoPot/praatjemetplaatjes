@@ -1,26 +1,30 @@
-<li>
-  @let category = this.category();
+@let category = this.category();
 
-  <article>
-    <h3>{{category!.text}}</h3>
-    <div class="picture-container" (click)="this.enounce.emit(category!.text)">
-      <picture>
-        <source srcset="{{category!.src}}" type="image/jpg" />
-        <img
-          src="{{category!.src}}"
-          type="image/jpg"
-          width="256"
-          height="auto"
-          alt="{{category!.text}}"
-        />
-      </picture>
-    </div>
-    @if(category?.subCategories) {
-    <nav>
-      <button (click)="navigateIntoCategory(category!.id)">
-        Bekijk {{category!.text | lowercase }}
-      </button>
-    </nav>
-    }
-  </article>
-</li>
+<article>
+  <h3>{{category!.text}}</h3>
+  <div
+    class="picture-container"
+    tabindex="0"
+    (keyup.enter)="this.enounce.emit(category!.text)"
+    (keyup.space)="this.enounce.emit(category!.text)"
+    (click)="this.enounce.emit(category!.text)"
+  >
+    <picture>
+      <source srcset="{{category!.src}}" type="image/jpg" />
+      <img
+        src="{{category!.src}}"
+        type="image/jpg"
+        width="256"
+        height="auto"
+        alt="{{category!.text}}"
+      />
+    </picture>
+  </div>
+  @if(category?.subCategories) {
+  <nav>
+    <button (click)="navigateIntoCategory(category!.id)">
+      Bekijk {{category!.text | lowercase }}
+    </button>
+  </nav>
+  }
+</article>

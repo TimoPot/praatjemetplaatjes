@@ -1,9 +1,11 @@
 <ol class="list">
   @for(card of cards(); track card.text ) {
-  <lmz-card
-    [category]="card"
-    (enounce)="this.speechService.speak($event)"
-  ></lmz-card>
+  <li class="list-item">
+    <lmz-card
+      [category]="card"
+      (enounce)="this.speechService.speak($event)"
+    ></lmz-card>
+  </li>
   }@empty {
   <li>There are no items.</li>
   }
