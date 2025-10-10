@@ -6,7 +6,7 @@ export const CategoriesData = [
     isMainCategory: true,
     name: 'alledaagse dingen',
     text: 'Alle daagse dingen',
-    src: './images/huis.jpg',
+    src: './images/dingen.jpg',
     subCategories: [2],
   } as Category,
   {
@@ -14,7 +14,7 @@ export const CategoriesData = [
     isMainCategory: false,
     name: 'huis',
     text: 'Huis',
-    src: './images/boom.jpg',
+    src: './images/huis.jpg',
     subCategories: [3, 4],
   } as Category,
 
@@ -23,7 +23,7 @@ export const CategoriesData = [
     isMainCategory: false,
     name: 'keuken',
     text: 'Keuken',
-    src: './images/keuken.png',
+    src: './images/keuken.jpg',
   } as Category,
 
   {
@@ -31,7 +31,7 @@ export const CategoriesData = [
     isMainCategory: false,
     name: 'woonkamer',
     text: 'Woonkamer',
-    src: './images/woonkamer.png',
+    src: './images/woonkamer.jpg',
   } as Category,
 
   {

@@ -1,8 +1,8 @@
 {
   "name": "Praatje met plaatjes",
   "short_name": "Praatje met plaatjes",
-  "theme_color": "#424242",
-  "background_color": "#424242",
+  "theme_color": "#333333",
+  "background_color": "#333333",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

@@ -1,3 +1,4 @@
+import { LowerCasePipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -13,6 +14,7 @@ import { Category } from 'projects/lmz/shared/interfaces/category';
   templateUrl: './card.html',
   styleUrls: ['./card.scss'],
   standalone: true,
+  imports: [LowerCasePipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Card {
