@@ -46,8 +46,8 @@ export const CategoriesData = [
   {
     id: 6,
     isMainCategory: false,
-    name: 'water',
-    text: 'Water',
-    src: './images/water.png',
+    name: 'boom',
+    text: 'Boom',
+    src: './images/boom.jpg',
   } as Category,
 ];
