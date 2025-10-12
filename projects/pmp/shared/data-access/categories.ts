@@ -7,7 +7,7 @@ export const CategoriesData = [
     name: 'alledaagse dingen',
     text: 'Alle daagse dingen',
     src: './images/dingen.jpg',
-    subCategories: [2],
+    subCategories: [2, 5],
   } as Category,
   {
     id: 2,
@@ -40,14 +40,27 @@ export const CategoriesData = [
     name: 'natuur',
     text: 'Natuur',
     src: './images/natuur.webp',
-    subCategories: [6],
+    subCategories: [6, 7, 8],
   } as Category,
-
   {
     id: 6,
     isMainCategory: false,
     name: 'boom',
     text: 'Boom',
     src: './images/boom.jpg',
+  } as Category,
+  {
+    id: 7,
+    isMainCategory: false,
+    name: 'berg',
+    text: 'Berg',
+    src: './images/berg.jpg',
+  } as Category,
+  {
+    id: 8,
+    isMainCategory: false,
+    name: 'meer',
+    text: 'Meer',
+    src: './images/meer.jpg',
   } as Category,
 ];

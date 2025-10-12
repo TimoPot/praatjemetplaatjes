@@ -22,7 +22,9 @@ export class Category {
     // React to route parameter changes
     this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
-      this.setSelectedCategory(id ? Number(id) : undefined);
+      if (id && id > '0') {
+        this.setSelectedCategory(Number(id));
+      }
     });
   }
 
@@ -31,6 +33,6 @@ export class Category {
    */
   private setSelectedCategory(id: number | undefined) {
     console.log('Setting selected category to:', id);
-    this.categoriesService.select$.next(id ? Number(id) : undefined);
+    this.categoriesService.select$.next(id ? Number(id) : 0);
   }
 }

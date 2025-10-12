@@ -12,10 +12,13 @@ import { of, Subject } from 'rxjs';
 import { Category } from '../interfaces/category';
 
 export interface CategoriesState {
-  selectedCategory?: number | undefined;
-  allCategories: Category[];
-  mainCategories: Category[];
+  selectedCategory?: number; // id of currently selected category
+  allCategories: Category[]; // list of all categories
+  mainCategories: Category[]; // list of main categories
+  mainCategoriesIDs: number[]; // list of main categories IDs
   subCategoriesOfSelected?: Category[];
+  subCategoriesIDsOfSelected?: number[];
+  navigationIdsStack?: number[][]; // stack of category IDs for navigation
 }
 
 @Injectable({
@@ -24,11 +27,10 @@ export interface CategoriesState {
 export class CategoriesService {
   private destroyRef = inject(DestroyRef);
 
-  // selectors
+  // SELECTORS
   allCategories = computed(() => this.state().allCategories);
-  mainCategories = computed(() =>
-    this.state().mainCategories.filter((c) => c.isMainCategory)
-  );
+  mainCategories = computed(() => this.state().mainCategories);
+  mainCategoriesIDs = computed(() => this.state().mainCategoriesIDs);
   subCategoriesOfSelected = computed(
     () => this.state().subCategoriesOfSelected || []
   );
@@ -38,40 +40,25 @@ export class CategoriesService {
     )
   );
 
-  // state
+  // STATE
   private state = signal<CategoriesState>({
-    selectedCategory: undefined,
+    selectedCategory: 0,
     allCategories: [],
     mainCategories: [],
+    mainCategoriesIDs: [],
     subCategoriesOfSelected: [],
+    subCategoriesIDsOfSelected: [],
+    navigationIdsStack: [],
   });
 
-  // sources
-  select$ = new Subject<number | undefined>();
+  // SOURCES
   private categories$ = of(CategoriesData);
+  select$ = new Subject<number>();
+  selectPreviousCategory$ = new Subject<number>();
+  selectNextCateogory$ = new Subject<number>();
 
   constructor() {
-    // reducers
-    // Update selected category
-    this.select$
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((id: number | undefined) => {
-        console.log('Selected category:', id);
-        // get subcategories id's of selected category
-        const subCategoriesIdsOfSelected = this.state().allCategories.filter(
-          (c) => c.id === id
-        )[0]?.subCategories;
-        // get subcategories of selected subcategories id's
-        const subCategoriesOfSelected = this.state().allCategories.filter((c) =>
-          subCategoriesIdsOfSelected?.includes(c.id)
-        );
-
-        this.state.update((state) => ({
-          ...state,
-          selectedCategory: id,
-          subCategoriesOfSelected: subCategoriesOfSelected,
-        }));
-      });
+    // REDUCERS
 
     // Load categories
     this.categories$
@@ -79,10 +66,49 @@ export class CategoriesService {
       .subscribe((categories) => {
         this.state.update((state) => ({
           ...state,
+          selectedCategory: 0, // is the top level categoryies
           allCategories: categories,
           mainCategories: categories.filter((c) => c.isMainCategory),
+          mainCategoriesIDs: categories
+            .filter((c) => c.isMainCategory)
+            .map((c) => c.id),
+          subCategoriesOfSelected: categories.filter((c) => c.isMainCategory),
+          subCategoriesIDsOfSelected: categories
+            .filter((c) => c.isMainCategory)
+            .map((c) => c.id),
         }));
       });
+
+    // Update selected category
+    this.select$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((id) => {
+      const allCategories = this.state().allCategories;
+
+      console.log('Selected category:', id);
+      // update navigation stack
+      const stack = [
+        ...(this.state().navigationIdsStack ?? []),
+        this.state().subCategoriesIDsOfSelected || [],
+      ];
+
+      // get subcategories id's of selected category
+      const subCategoriesIdsOfSelected = allCategories.filter(
+        (c) => c.id === id
+      )[0]?.subCategories;
+
+      // get subcategories of above selected subcategories id's
+      const subCategoriesOfSelected = allCategories.filter((c) =>
+        subCategoriesIdsOfSelected?.includes(c.id)
+      );
+
+      // update state
+      this.state.update((state) => ({
+        ...state,
+        selectedCategory: id,
+        subCategoriesOfSelected: subCategoriesOfSelected,
+        subCategoriesIDsOfSelected: subCategoriesIdsOfSelected,
+        navigationIdsStack: stack,
+      }));
+    });
 
     effect(() => {
       console.log('Categories state changed:', this.state());

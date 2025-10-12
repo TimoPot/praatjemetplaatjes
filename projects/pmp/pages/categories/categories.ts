@@ -21,15 +21,17 @@ export class Categories {
     // React to route parameter changes
     this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
-      this.setSelectedCategory(id ? Number(id) : undefined);
+      if (id && id > '0') {
+        this.setSelectedCategory(Number(id));
+      }
     });
   }
 
   /**
    * set the selected category id in the state
    */
-  private setSelectedCategory(id: number | undefined) {
+  private setSelectedCategory(id: number) {
     console.log('Setting selected category to:', id);
-    this.categoriesService.select$.next(id ? Number(id) : undefined);
+    this.categoriesService.select$.next(id);
   }
 }
