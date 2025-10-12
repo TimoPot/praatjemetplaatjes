@@ -32,18 +32,18 @@
     "@angular/build": "^20.3.4",
     "@angular/cli": "^20.3.4",
     "@angular/compiler-cli": "^20.3.3",
-    "@nx/angular": "21.5.3",
-    "@nx/workspace": "21.5.3",
+    "@nx/angular": "21.6.4",
+    "@nx/workspace": "21.6.4",
     "@schematics/angular": "^20.3.4",
     "@types/jasmine": "~5.1.9",
-    "jasmine-core": "~5.11.0",
+    "jasmine-core": "~5.12.0",
     "karma": "~6.4.4",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.1",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^20.3.0",
-    "nx": "21.5.3",
+    "nx": "21.6.4",
     "typescript": "~5.9.2"
   }
 }
