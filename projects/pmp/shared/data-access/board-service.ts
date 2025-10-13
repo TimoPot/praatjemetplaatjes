@@ -11,12 +11,14 @@ import { CardsData } from './cards-data';
 import { of } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
+export type navigationStackTuple = [number, string];
+
 export interface BoardState {
   // Define the state properties for the board here
   allCards: Card[];
   selectedGroupCard?: Card;
   cardsToDisplay: Card[] | null;
-  navigationStack?: number[][];
+  navigationStack?: navigationStackTuple[];
 }
 
 @Injectable({
@@ -47,21 +49,20 @@ export class BoardService {
   // ACTIONS/METHODS
   // Define any actions or methods that modify the state here
   selectHome() {
-    const homeCard = this.state().allCards.find((card) => card.id === 0);
+    const homeCard = this.getSelectedCard(0);
     if (!homeCard) return; // early exit
 
     this.state.update((state) => ({
       ...state,
       selectedGroupCard: homeCard,
       cardsToDisplay: this.getCardsToDisplay(homeCard),
-      navigationStack: [...(state.navigationStack || []), [0]],
+      navigationStack: [[0, homeCard.name]],
     }));
   }
 
   selectCard(cardId: number) {
-    const selectedCard = this.state().allCards.find(
-      (card) => card.id === cardId
-    );
+    const selectedCard = this.getSelectedCard(cardId);
+    if (!selectedCard) return; // early exit
 
     this.state.update((state) => ({
       ...state,
@@ -69,7 +70,7 @@ export class BoardService {
       cardsToDisplay: this.getCardsToDisplay(selectedCard),
       navigationStack: [
         ...(state.navigationStack || []),
-        [selectedCard?.id || 0],
+        [selectedCard!.id, selectedCard!.name],
       ],
     }));
   }
@@ -87,6 +88,15 @@ export class BoardService {
     effect(() => {
       console.log('Categories state changed:', this.state());
     });
+  }
+
+  private getSelectedCard(cardId: number): Card | undefined {
+    const state = this.state();
+    if (!state?.allCards?.length) {
+      return undefined;
+    }
+
+    return state.allCards.find((card) => card.id === cardId);
   }
 
   private getCardsToDisplay(selectedCard?: Card): Card[] {
