@@ -21,9 +21,7 @@ export class Categories {
     // React to route parameter changes
     this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
-      if (id && id > '0') {
-        this.setSelectedCategory(Number(id));
-      }
+      this.setSelectedCategory(Number(id));
     });
   }
 

@@ -56,6 +56,7 @@ export class CategoriesService {
   select$ = new Subject<number>();
   selectPreviousCategory$ = new Subject<number>();
   selectNextCateogory$ = new Subject<number>();
+  selectParentCategory$ = new Subject<number>();
 
   constructor() {
     // REDUCERS
@@ -82,18 +83,23 @@ export class CategoriesService {
     // Update selected category
     this.select$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((id) => {
       const allCategories = this.state().allCategories;
+      let subCategoriesIdsOfSelected: number[] = [];
+      let stack: number[][] = [];
 
       console.log('Selected category:', id);
-      // update navigation stack
-      const stack = [
-        ...(this.state().navigationIdsStack ?? []),
-        this.state().subCategoriesIDsOfSelected || [],
-      ];
-
-      // get subcategories id's of selected category
-      const subCategoriesIdsOfSelected = allCategories.filter(
-        (c) => c.id === id
-      )[0]?.subCategories;
+      // update navigation stack if id > 0
+      if (id === 0) {
+        subCategoriesIdsOfSelected = this.state().mainCategoriesIDs;
+      }
+      if (id > 0) {
+        stack = [
+          ...(this.state().navigationIdsStack ?? []),
+          this.state().subCategoriesIDsOfSelected || [],
+        ];
+        // get subcategories id's of selected category
+        subCategoriesIdsOfSelected =
+          allCategories.filter((c) => c.id === id)[0]?.subCategories || [];
+      }
 
       // get subcategories of above selected subcategories id's
       const subCategoriesOfSelected = allCategories.filter((c) =>
