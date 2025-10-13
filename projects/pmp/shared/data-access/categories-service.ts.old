@@ -5,24 +5,24 @@ import {
   inject,
   Injectable,
   signal,
-} from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { CategoriesData } from './categories';
-import { of, Subject } from 'rxjs';
-import { Category } from '../interfaces/category';
+} from "@angular/core";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { CardsData } from "./cards-data";
+import { of, Subject } from "rxjs";
+import { Card } from "../interfaces/card";
 
 export interface CategoriesState {
   selectedCategory?: number; // id of currently selected category
-  allCategories: Category[]; // list of all categories
-  mainCategories: Category[]; // list of main categories
+  allCategories: Card[]; // list of all categories
+  mainCategories: Card[]; // list of main categories
   mainCategoriesIDs: number[]; // list of main categories IDs
-  subCategoriesOfSelected?: Category[];
+  subCategoriesOfSelected?: Card[];
   subCategoriesIDsOfSelected?: number[];
   navigationIdsStack?: number[][]; // stack of category IDs for navigation
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class CategoriesService {
   private destroyRef = inject(DestroyRef);
@@ -52,7 +52,7 @@ export class CategoriesService {
   });
 
   // SOURCES
-  private categories$ = of(CategoriesData);
+  private categories$ = of(CardsData);
   select$ = new Subject<number>();
   selectPreviousCategory$ = new Subject<number>();
   selectNextCateogory$ = new Subject<number>();
@@ -86,7 +86,7 @@ export class CategoriesService {
       let subCategoriesIdsOfSelected: number[] = [];
       let stack: number[][] = [];
 
-      console.log('Selected category:', id);
+      console.log("Selected category:", id);
       // update navigation stack if id > 0
       if (id === 0) {
         subCategoriesIdsOfSelected = this.state().mainCategoriesIDs;
@@ -98,7 +98,7 @@ export class CategoriesService {
         ];
         // get subcategories id's of selected category
         subCategoriesIdsOfSelected =
-          allCategories.filter((c) => c.id === id)[0]?.subCategories || [];
+          allCategories.filter((c) => c.id === id)[0]?.children || [];
       }
 
       // get subcategories of above selected subcategories id's
@@ -117,7 +117,7 @@ export class CategoriesService {
     });
 
     effect(() => {
-      console.log('Categories state changed:', this.state());
+      console.log("Categories state changed:", this.state());
     });
   }
 }

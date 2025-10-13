@@ -7,7 +7,7 @@ import {
   output,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { Category } from 'projects/pmp/shared/interfaces/category';
+import { Card as CardI } from 'projects/pmp/shared/interfaces/card';
 
 @Component({
   selector: 'pmp-card',
@@ -18,13 +18,14 @@ import { Category } from 'projects/pmp/shared/interfaces/category';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Card {
-  readonly category = input<Category>();
+  readonly card = input<CardI>();
 
   readonly enounce = output<string>();
 
   private router = inject(Router);
 
-  navigateIntoCategory(id: number) {
-    this.router.navigate(['main/category', id]);
+  navigateIntoCard(id: number) {
+    // TODO: navigate to the card's detail view or perform another action
+    console.log(`TODO: Navigate into card with id ${id} `);
   }
 }

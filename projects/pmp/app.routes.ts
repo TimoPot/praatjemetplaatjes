@@ -1,23 +1,11 @@
 import { Routes } from '@angular/router';
-import { Categories } from '@pages/categories/categories';
-import { Category } from '@pages/category/category';
-import { Main } from '@pages/main/main';
+import { Board } from '@pages/board/board';
 
 export const routes: Routes = [
   {
-    path: 'main',
-    component: Main,
-    children: [
-      {
-        path: 'categories',
-        component: Categories,
-      },
-      {
-        path: 'category/:id',
-        component: Category,
-      },
-    ],
+    path: 'board',
+    component: Board,
   },
-  { path: '', redirectTo: '/main/categories', pathMatch: 'full' },
-  { path: '**', component: Main },
+  { path: '', redirectTo: '/board', pathMatch: 'full' },
+  { path: '**', component: Board },
 ];
