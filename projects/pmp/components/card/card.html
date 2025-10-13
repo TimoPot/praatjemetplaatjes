@@ -1,29 +1,29 @@
-@let category = this.category();
+@let card = this.card();
 
 <article>
-  <h3>{{category!.text}}</h3>
+  <h3>{{card!.name}}</h3>
   <div
     class="picture-container"
     tabindex="0"
-    (keyup.enter)="this.enounce.emit(category!.text)"
-    (keyup.space)="this.enounce.emit(category!.text)"
-    (click)="this.enounce.emit(category!.text)"
+    (keyup.enter)="this.enounce.emit(card!.name)"
+    (keyup.space)="this.enounce.emit(card!.name)"
+    (click)="this.enounce.emit(card!.name)"
   >
     <picture>
-      <source srcset="{{category!.src}}" type="image/jpg" />
+      <source srcset="{{card!.src}}" type="image/jpg" />
       <img
-        src="{{category!.src}}"
+        src="{{card!.src}}"
         type="image/jpg"
         width="256"
         height="auto"
-        alt="{{category!.text}}"
+        alt="{{card!.name}}"
       />
     </picture>
   </div>
-  @if(category?.subCategories) {
+  @if(card?.childrenIds?.length) {
   <nav>
-    <button (click)="navigateIntoCategory(category!.id)">
-      Bekijk {{category!.text | lowercase }}
+    <button (click)="navigateIntoCard(card!.id)">
+      Bekijk {{card!.name | lowercase }}
     </button>
   </nav>
   }

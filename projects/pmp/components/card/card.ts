@@ -6,8 +6,8 @@ import {
   input,
   output,
 } from '@angular/core';
-import { Router } from '@angular/router';
-import { Category } from 'projects/pmp/shared/interfaces/category';
+import { BoardService } from 'projects/pmp/shared/data-access/board-service';
+import { Card as CardI } from 'projects/pmp/shared/interfaces/card';
 
 @Component({
   selector: 'pmp-card',
@@ -18,13 +18,13 @@ import { Category } from 'projects/pmp/shared/interfaces/category';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Card {
-  readonly category = input<Category>();
+  readonly card = input<CardI>();
 
   readonly enounce = output<string>();
 
-  private router = inject(Router);
+  boardService = inject(BoardService);
 
-  navigateIntoCategory(id: number) {
-    this.router.navigate(['main/category', id]);
+  navigateIntoCard(id: number) {
+    this.boardService.selectCard(id);
   }
 }

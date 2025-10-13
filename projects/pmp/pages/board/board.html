@@ -9,11 +9,11 @@
     </button>
   </nav>
   <nav class="nav-bar">
-    @if(selectedCategory()) {
+    @if (boardService.selectedGroupCard()?.parentId !== null) {
     <button aria-label="vorige categorie">
       <i class="fa-regular fa-solid fa-left-long"></i>
     </button>
-    <h2>{{selectedCategory()?.name}}</h2>
+    <h2>{{boardService.selectedGroupCard()?.name}}</h2>
     <button aria-label="volgende categorie">
       <i class="fa-regular fa-solid fa-right-long"></i>
     </button>
@@ -22,7 +22,7 @@
     }
   </nav>
   <main class="content">
-    <router-outlet />
+    <pmp-cards [cards]="boardService.cardsToDisplay() || []"></pmp-cards>
   </main>
   <div class="bottom-bar">Copyright © 2025 - Timo & Martin</div>
 </div>

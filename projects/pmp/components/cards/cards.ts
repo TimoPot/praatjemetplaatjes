@@ -4,10 +4,10 @@ import {
   inject,
   input,
 } from '@angular/core';
-import { Card } from '../card/card';
 import { SpeechService } from 'projects/pmp/services/speech-service';
 import { CommonModule } from '@angular/common';
-import { Category } from 'projects/pmp/shared/interfaces/category';
+import { Card as CardI } from 'projects/pmp/shared/interfaces/card';
+import { Card } from '../card/card';
 
 @Component({
   selector: 'pmp-cards',
@@ -18,7 +18,7 @@ import { Category } from 'projects/pmp/shared/interfaces/category';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Cards {
-  cards = input.required<Category[]>();
+  cards = input.required<CardI[]>();
 
   speechService = inject(SpeechService);
 }
