@@ -6,7 +6,7 @@ import {
   input,
   output,
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { BoardService } from 'projects/pmp/shared/data-access/board-service';
 import { Card as CardI } from 'projects/pmp/shared/interfaces/card';
 
 @Component({
@@ -22,10 +22,9 @@ export class Card {
 
   readonly enounce = output<string>();
 
-  private router = inject(Router);
+  boardService = inject(BoardService);
 
   navigateIntoCard(id: number) {
-    // TODO: navigate to the card's detail view or perform another action
-    console.log(`TODO: Navigate into card with id ${id} `);
+    this.boardService.selectCard(id);
   }
 }

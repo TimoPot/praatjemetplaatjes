@@ -3,8 +3,8 @@ import { Card } from '../interfaces/card';
 export const CardsData: Card[] = [
   {
     id: 0,
-    name: 'hoofd categorie',
-    speech: 'hoofd categorie',
+    name: 'hoofdcategorieën',
+    speech: 'hoofdcategorieën',
     src: '',
     parentId: null,
     childrenIds: [1, 5],

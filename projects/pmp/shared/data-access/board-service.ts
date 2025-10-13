@@ -14,7 +14,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 export interface BoardState {
   // Define the state properties for the board here
   allCards: Card[];
-  selectedCard?: Card;
+  selectedGroupCard?: Card;
   cardsToDisplay: Card[] | null;
   navigationStack?: number[][];
 }
@@ -28,14 +28,14 @@ export class BoardService {
   // SELECTORS
   // Define computed selectors based on the state here
   readonly allCards = computed(() => this.state().allCards);
-  readonly selectedCard = computed(() => this.state().selectedCard);
+  readonly selectedGroupCard = computed(() => this.state().selectedGroupCard);
   readonly cardsToDisplay = computed(() => this.state().cardsToDisplay);
 
   // STATE
   private state = signal<BoardState>({
     // Initialize the state properties here
     allCards: [],
-    selectedCard: undefined,
+    selectedGroupCard: undefined,
     cardsToDisplay: [],
     navigationStack: [],
   });
@@ -48,16 +48,29 @@ export class BoardService {
   // Define any actions or methods that modify the state here
   selectHome() {
     const homeCard = this.state().allCards.find((card) => card.id === 0);
-
-    if (!homeCard) return;
+    if (!homeCard) return; // early exit
 
     this.state.update((state) => ({
       ...state,
-      selectedCard: undefined,
-      cardsToDisplay: state.allCards.filter((card) =>
-        homeCard.childrenIds?.includes(card.id)
-      ),
+      selectedGroupCard: homeCard,
+      cardsToDisplay: this.getCardsToDisplay(homeCard),
       navigationStack: [...(state.navigationStack || []), [0]],
+    }));
+  }
+
+  selectCard(cardId: number) {
+    const selectedCard = this.state().allCards.find(
+      (card) => card.id === cardId
+    );
+
+    this.state.update((state) => ({
+      ...state,
+      selectedGroupCard: selectedCard,
+      cardsToDisplay: this.getCardsToDisplay(selectedCard),
+      navigationStack: [
+        ...(state.navigationStack || []),
+        [selectedCard?.id || 0],
+      ],
     }));
   }
 
@@ -74,5 +87,16 @@ export class BoardService {
     effect(() => {
       console.log('Categories state changed:', this.state());
     });
+  }
+
+  private getCardsToDisplay(selectedCard?: Card): Card[] {
+    const state = this.state();
+    if (!state?.allCards || !selectedCard?.childrenIds?.length) {
+      return [];
+    }
+
+    return state.allCards.filter((card) =>
+      selectedCard?.childrenIds?.includes(card.id)
+    );
   }
 }
