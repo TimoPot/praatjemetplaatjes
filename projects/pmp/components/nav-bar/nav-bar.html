@@ -5,19 +5,22 @@
       track level[0];
       let last = $last, index = $index
     ) {
+      @let levelIndex = level[0];
+      @let levelName = level[1];
+
       @if (!last) {
         <button
           class="level-button"
           aria-label="vorige categorie"
-          (click)="this.boardService.selectLevel(level[0], index)"
+          (click)="this.boardService.selectLevel(levelIndex, index)"
         >
-          {{ level[1] }}
+          {{ levelName }}
         </button>
       } @else {
         <button class="icon-button" aria-label="vorige categorie">
           <i class="fa-regular fa-solid fa-left-long"></i>
         </button>
-        <h2>{{ level[1] }}</h2>
+        <h2>{{ levelName }}</h2>
         <button class="icon-button" aria-label="volgende categorie">
           <i class="fa-regular fa-solid fa-right-long"></i>
         </button>
