@@ -4,10 +4,7 @@ import {
   inject,
   input,
 } from '@angular/core';
-import {
-  BoardService,
-  navigationStackTuple,
-} from 'projects/pmp/shared/data-access/board-service';
+import { BoardService } from 'projects/pmp/shared/data-access/board-service';
 
 @Component({
   selector: 'pmp-nav-bar',
@@ -18,7 +15,5 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavBar {
-  navigationStack = input.required<navigationStackTuple[]>();
-
   boardService = inject(BoardService);
 }
