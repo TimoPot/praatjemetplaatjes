@@ -1,11 +1,16 @@
 :host {
+  display: flex;
+  flex: 0 0 4.75rem;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: solid 1px #555;
+
   .nav-bar {
     display: flex;
-    flex: 0 0 4rem;
     align-items: center;
-    justify-content: space-between;
 
-    gap: 2rem;
+    gap: 1rem;
 
     padding: 0 1rem;
 
@@ -13,9 +18,6 @@
       margin: 0;
       margin-right: auto;
     }
-  }
-
-  .nav-bar {
     h2 {
       margin: 0;
       margin-right: auto;
@@ -26,15 +28,35 @@
   button {
     all: unset;
     cursor: pointer;
-    // border: solid 2px red;
-    border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
+
     display: flex;
-
-    font-size: x-large;
-
     justify-content: center;
     align-items: center;
+
+    font-size: x-large;
+    text-transform: uppercase;
+
+    &.level-button {
+      min-width: 256px;
+      max-height: 40px;
+      height: 40px;
+      padding: 0 0.5rem;
+
+      background-color: rgb(44, 44, 44);
+      color: white;
+      border: solid 2px grey;
+      border-radius: 6px;
+    }
+    &.icon-button {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: lightgray;
+      color: black;
+    }
   }
 }
