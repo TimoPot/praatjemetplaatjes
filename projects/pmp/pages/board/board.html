@@ -8,19 +8,28 @@
       <i class="fa-regular fa-solid fa-gear"></i>
     </button>
   </nav>
-  <nav class="nav-bar">
-    @if (boardService.selectedGroupCard()?.parentId !== null) {
+  <pmp-nav-bar
+    [navigationStack]="boardService.navigationStack()!"
+  ></pmp-nav-bar>
+  <!-- <nav class="nav-bar">
+    @if (boardService.selectedGroupCard()?.parentId !== null) { @for (level of
+    boardService.navigationStack(); track level[0]; let last = $last) {
+    @if(!last) {
+    <h2>{{level[1]}}</h2>
+    } @else {
     <button aria-label="vorige categorie">
       <i class="fa-regular fa-solid fa-left-long"></i>
     </button>
-    <h2>{{boardService.selectedGroupCard()?.name}}</h2>
+    <h2>{{level[1]}}</h2>
     <button aria-label="volgende categorie">
       <i class="fa-regular fa-solid fa-right-long"></i>
     </button>
+    } }
+
     } @else {
     <h2>Hoofdcategorieën</h2>
     }
-  </nav>
+  </nav> -->
   <main class="content">
     <pmp-cards [cards]="boardService.cardsToDisplay() || []"></pmp-cards>
   </main>

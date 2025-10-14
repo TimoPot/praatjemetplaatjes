@@ -11,7 +11,7 @@ import { CardsData } from './cards-data';
 import { of } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
-export type navigationStackTuple = [number, string];
+export type navigationStackTuple = [id: number, name: string];
 
 export interface BoardState {
   // Define the state properties for the board here
@@ -32,6 +32,7 @@ export class BoardService {
   readonly allCards = computed(() => this.state().allCards);
   readonly selectedGroupCard = computed(() => this.state().selectedGroupCard);
   readonly cardsToDisplay = computed(() => this.state().cardsToDisplay);
+  readonly navigationStack = computed(() => this.state().navigationStack);
 
   // STATE
   private state = signal<BoardState>({

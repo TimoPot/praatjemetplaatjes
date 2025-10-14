@@ -1,0 +1,40 @@
+:host {
+  .nav-bar {
+    display: flex;
+    flex: 0 0 4rem;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 2rem;
+
+    padding: 0 1rem;
+
+    h1 {
+      margin: 0;
+      margin-right: auto;
+    }
+  }
+
+  .nav-bar {
+    h2 {
+      margin: 0;
+      margin-right: auto;
+      text-transform: uppercase;
+    }
+  }
+
+  button {
+    all: unset;
+    cursor: pointer;
+    // border: solid 2px red;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+
+    font-size: x-large;
+
+    justify-content: center;
+    align-items: center;
+  }
+}

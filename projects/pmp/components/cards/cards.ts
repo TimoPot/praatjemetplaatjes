@@ -4,7 +4,7 @@ import {
   inject,
   input,
 } from '@angular/core';
-import { SpeechService } from 'projects/pmp/services/speech-service';
+import { SpeechService } from 'projects/pmp/shared/services/speech-service';
 import { CommonModule } from '@angular/common';
 import { Card as CardI } from 'projects/pmp/shared/interfaces/card';
 import { Card } from '../card/card';
