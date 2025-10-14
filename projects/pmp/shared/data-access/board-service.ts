@@ -76,6 +76,20 @@ export class BoardService {
     }));
   }
 
+  selectLevel(cardId: number, level: number) {
+    const selectedCard = this.getSelectedCard(cardId);
+    if (!selectedCard) return; // early exit
+
+    const newNavStack = this.state().navigationStack?.slice(0, level + 1);
+
+    this.state.update((state) => ({
+      ...state,
+      selectedGroupCard: selectedCard,
+      cardsToDisplay: this.getCardsToDisplay(selectedCard),
+      navigationStack: newNavStack,
+    }));
+  }
+
   constructor() {
     // Load initial data into the state
     this.allCards$
@@ -107,7 +121,7 @@ export class BoardService {
     }
 
     return state.allCards.filter((card) =>
-      selectedCard?.childrenIds?.includes(card.id)
+      selectedCard?.childrenIds?.includes(card.id),
     );
   }
 }

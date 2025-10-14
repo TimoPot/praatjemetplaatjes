@@ -1,7 +1,7 @@
 @let card = this.card();
 
 <article>
-  <h3>{{card!.name}}</h3>
+  <h3>{{ card!.name }}</h3>
   <div
     class="picture-container"
     tabindex="0"
@@ -12,19 +12,19 @@
     <picture>
       <source srcset="{{card!.src}}" type="image/jpg" />
       <img
-        src="{{card!.src}}"
+        src="{{ card!.src }}"
         type="image/jpg"
         width="256"
         height="auto"
-        alt="{{card!.name}}"
+        alt="{{ card!.name }}"
       />
     </picture>
   </div>
-  @if(card?.childrenIds?.length) {
-  <nav>
-    <button (click)="navigateIntoCard(card!.id)">
-      Bekijk {{card!.name | lowercase }}
-    </button>
-  </nav>
+  @if (card?.childrenIds?.length) {
+    <nav>
+      <button (click)="this.boardService.selectCard(card!.id)">
+        Bekijk {{ card!.name | lowercase }}
+      </button>
+    </nav>
   }
 </article>

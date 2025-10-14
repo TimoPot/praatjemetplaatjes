@@ -3,13 +3,16 @@
     @for (
       level of boardService.navigationStack();
       track level[0];
-      let last = $last
+      let last = $last, index = $index
     ) {
       @if (!last) {
-        <button class="level-button" aria-label="vorige categorie">
+        <button
+          class="level-button"
+          aria-label="vorige categorie"
+          (click)="this.boardService.selectLevel(level[0], index)"
+        >
           {{ level[1] }}
         </button>
-        <!-- <h2>{{ level[1] }}</h2> -->
       } @else {
         <button class="icon-button" aria-label="vorige categorie">
           <i class="fa-regular fa-solid fa-left-long"></i>
@@ -20,7 +23,6 @@
         </button>
       }
     }
-    <!-- <h2>{{boardService.selectedGroupCard()?.name}}</h2> -->
   } @else {
     <h2>Hoofdcategorieën</h2>
   }

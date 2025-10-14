@@ -23,8 +23,4 @@ export class Card {
   readonly enounce = output<string>();
 
   boardService = inject(BoardService);
-
-  navigateIntoCard(id: number) {
-    this.boardService.selectCard(id);
-  }
 }
