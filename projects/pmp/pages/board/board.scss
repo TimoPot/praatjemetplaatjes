@@ -22,6 +22,8 @@
     padding: 0 1rem;
 
     h1 {
+      font-size: clamp(1rem, 5vw, 2rem);
+      white-space: nowrap;
       margin: 0;
       margin-right: auto;
     }
@@ -38,10 +40,15 @@
   .content {
     display: flex;
     flex: 1 1 auto;
-
+    flex-direction: column;
     padding: 0 1rem;
 
     overflow: auto;
+
+    h2 {
+      font-size: x-large;
+      text-transform: uppercase;
+    }
   }
 
   button {

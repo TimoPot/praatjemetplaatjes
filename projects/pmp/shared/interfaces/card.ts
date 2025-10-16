@@ -5,4 +5,5 @@ export interface Card {
   src: string;
   parentId: number | null;
   childrenIds: number[] | null;
+  linkIds?: number[] | null;
 }

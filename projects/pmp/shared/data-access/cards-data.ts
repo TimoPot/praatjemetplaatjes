@@ -52,7 +52,7 @@ export const CardsData: Card[] = [
   {
     id: 6,
     name: 'boom',
-    speech: 'Boom',
+    speech: 'Booom',
     src: './images/boom.jpg',
     parentId: 5,
     childrenIds: null,

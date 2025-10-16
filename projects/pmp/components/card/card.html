@@ -5,9 +5,9 @@
   <div
     class="picture-container"
     tabindex="0"
-    (keyup.enter)="this.enounce.emit(card!.name)"
-    (keyup.space)="this.enounce.emit(card!.name)"
-    (click)="this.enounce.emit(card!.name)"
+    (keyup.enter)="this.enounce.emit(card!.speech)"
+    (keyup.space)="this.enounce.emit(card!.speech)"
+    (click)="this.enounce.emit(card!.speech)"
   >
     <picture>
       <source srcset="{{card!.src}}" type="image/jpg" />
@@ -22,7 +22,7 @@
   </div>
   @if (card?.childrenIds?.length) {
     <nav>
-      <button (click)="this.boardService.selectCard(card!.id)">
+      <button (click)="this.boardService.selectGroupCard(card!.id)">
         Bekijk {{ card!.name | lowercase }}
       </button>
     </nav>

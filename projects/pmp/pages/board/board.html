@@ -13,7 +13,10 @@
   ></pmp-nav-bar> -->
   <pmp-nav-bar></pmp-nav-bar>
   <main class="content">
-    <pmp-cards [cards]="boardService.cardsToDisplay() || []"></pmp-cards>
+    <h2>{{ boardService.selectedGroupCard()?.name }}</h2>
+    <div class="cards-container">
+      <pmp-cards [cards]="boardService.cardsToDisplay() || []"></pmp-cards>
+    </div>
   </main>
   <div class="bottom-bar">Copyright © 2025 - Timo & Martin</div>
 </div>

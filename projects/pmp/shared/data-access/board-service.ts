@@ -11,7 +11,11 @@ import { CardsData } from './cards-data';
 import { of } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
-export type navigationStackTuple = [id: number, name: string];
+export type navigationStackTuple = [
+  id: number,
+  name: string,
+  childrenIdsOfParent: number[],
+];
 
 export interface BoardState {
   // Define the state properties for the board here
@@ -50,34 +54,36 @@ export class BoardService {
   // ACTIONS/METHODS
   // Define any actions or methods that modify the state here
   selectHome() {
-    const homeCard = this.getSelectedCard(0);
+    const homeCard = this.getCardByID(0);
     if (!homeCard) return; // early exit
 
     this.state.update((state) => ({
       ...state,
       selectedGroupCard: homeCard,
       cardsToDisplay: this.getCardsToDisplay(homeCard),
-      navigationStack: [[0, homeCard.name]],
+      navigationStack: [[0, homeCard.name, []]],
     }));
   }
 
-  selectCard(cardId: number) {
-    const selectedCard = this.getSelectedCard(cardId);
-    if (!selectedCard) return; // early exit
+  selectGroupCard(cardId: number) {
+    const selectedGroupCard = this.getCardByID(cardId);
+    if (!selectedGroupCard) return; // early exit
+
+    const ids = this.getChildrenIDsofCard(selectedGroupCard.parentId) || [];
 
     this.state.update((state) => ({
       ...state,
-      selectedGroupCard: selectedCard,
-      cardsToDisplay: this.getCardsToDisplay(selectedCard),
+      selectedGroupCard: selectedGroupCard,
+      cardsToDisplay: this.getCardsToDisplay(selectedGroupCard),
       navigationStack: [
         ...(state.navigationStack || []),
-        [selectedCard!.id, selectedCard!.name],
+        [selectedGroupCard!.id, selectedGroupCard!.name, ids],
       ],
     }));
   }
 
   selectLevel(cardId: number, level: number) {
-    const selectedCard = this.getSelectedCard(cardId);
+    const selectedCard = this.getCardByID(cardId);
     if (!selectedCard) return; // early exit
 
     const newNavStack = this.state().navigationStack?.slice(0, level + 1);
@@ -88,6 +94,10 @@ export class BoardService {
       cardsToDisplay: this.getCardsToDisplay(selectedCard),
       navigationStack: newNavStack,
     }));
+  }
+
+  selectSibling(cardId: number) {
+    console.log(`TODO`);
   }
 
   constructor() {
@@ -105,7 +115,7 @@ export class BoardService {
     });
   }
 
-  private getSelectedCard(cardId: number): Card | undefined {
+  private getCardByID(cardId: number): Card | undefined {
     const state = this.state();
     if (!state?.allCards?.length) {
       return undefined;
@@ -123,5 +133,11 @@ export class BoardService {
     return state.allCards.filter((card) =>
       selectedCard?.childrenIds?.includes(card.id),
     );
+  }
+
+  private getChildrenIDsofCard(parentId: number | null) {
+    if (parentId === null) return []; //early return
+
+    return this.getCardByID(parentId)?.childrenIds;
   }
 }
