@@ -30,6 +30,7 @@
 
     button {
       all: unset;
+      box-sizing: border-box;
       cursor: pointer;
 
       display: flex;
@@ -40,7 +41,7 @@
       text-transform: uppercase;
 
       &.level-button {
-        min-width: 256px;
+        min-width: 276px;
         max-height: 40px;
         height: 40px;
         // padding: 0 0.5rem;
