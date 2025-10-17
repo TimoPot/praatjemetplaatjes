@@ -1,12 +1,14 @@
-<ol class="list">
-  @for(card of cards(); track card.name ) {
-  <li class="list-item scale-in">
-    <pmp-card
-      [card]="card"
-      (enounce)="this.speechService.speak($event)"
-    ></pmp-card>
-  </li>
-  }@empty {
-  <li>There are no items.</li>
-  }
-</ol>
+<div class="cards-container">
+  <ol class="list">
+    @for (card of cards(); track card.name) {
+      <li class="list-item scale-in">
+        <pmp-card
+          [card]="card"
+          (enounce)="this.speechService.speak($event)"
+        ></pmp-card>
+      </li>
+    } @empty {
+      <li>There are no items.</li>
+    }
+  </ol>
+</div>

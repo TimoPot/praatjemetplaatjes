@@ -37,6 +37,11 @@ export class BoardService {
   readonly selectedGroupCard = computed(() => this.state().selectedGroupCard);
   readonly cardsToDisplay = computed(() => this.state().cardsToDisplay);
   readonly navigationStack = computed(() => this.state().navigationStack);
+  readonly selectedLinkCards = computed(() => {
+    const ids = this.state().selectedGroupCard?.linkIds;
+    if (!ids) return [];
+    return this.state().allCards.filter((card) => ids.includes(card.id));
+  });
 
   // STATE
   private state = signal<BoardState>({

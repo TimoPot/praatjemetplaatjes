@@ -12,25 +12,11 @@
   <main class="content">
     <div class="content-container">
       <h2>{{ boardService.selectedGroupCard()?.name }}</h2>
-      <div class="cards-container">
-        <pmp-cards [cards]="boardService.cardsToDisplay() || []"></pmp-cards>
-      </div>
+      <pmp-cards [cards]="boardService.cardsToDisplay() || []"></pmp-cards>
     </div>
-    <div class="links-container">
-      <button aria-label="naar meubels" class="link-button">meubels</button>
-      <button aria-label="naar meubels" class="link-button">meubels</button>
-      <button aria-label="naar meubels" class="link-button">meubels</button>
-      <button aria-label="naar meubels" class="link-button">meubels</button>
-      <button aria-label="naar meubels" class="link-button">meubels</button>
-      <button aria-label="naar meubels" class="link-button">meubels</button>
-      <button aria-label="naar meubels" class="link-button">meubels</button>
-      <button aria-label="naar meubels" class="link-button">meubels</button>
-      <button aria-label="naar meubels" class="link-button">meubels</button>
-      <button aria-label="naar meubels" class="link-button">meubels</button>
-      <button aria-label="naar meubels" class="link-button">meubels</button>
-      <button aria-label="naar meubels" class="link-button">meubels</button>
-      <button aria-label="naar meubels" class="link-button">meubels</button>
-    </div>
+    <pmp-nav-links-bar
+      [links]="boardService.selectedLinkCards()"
+    ></pmp-nav-links-bar>
   </main>
   <div class="bottom-bar">Copyright © 2025 - Timo & Martin</div>
 </div>
