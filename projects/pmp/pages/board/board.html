@@ -1,21 +1,35 @@
 <div class="page">
   <nav class="top-bar">
-    <button aria-label="menu">
+    <button class="icon-button" aria-label="menu">
       <i class="fa-regular fa-solid fa-bars"></i>
     </button>
     <h1>{{ title }}</h1>
-    <button aria-label="instellingen">
+    <button class="icon-button" aria-label="instellingen">
       <i class="fa-regular fa-solid fa-gear"></i>
     </button>
   </nav>
-  <!-- <pmp-nav-bar
-    [navigationStack]="boardService.navigationStack()!"
-  ></pmp-nav-bar> -->
   <pmp-nav-bar></pmp-nav-bar>
   <main class="content">
-    <h2>{{ boardService.selectedGroupCard()?.name }}</h2>
-    <div class="cards-container">
-      <pmp-cards [cards]="boardService.cardsToDisplay() || []"></pmp-cards>
+    <div class="content-container">
+      <h2>{{ boardService.selectedGroupCard()?.name }}</h2>
+      <div class="cards-container">
+        <pmp-cards [cards]="boardService.cardsToDisplay() || []"></pmp-cards>
+      </div>
+    </div>
+    <div class="links-container">
+      <button aria-label="naar meubels" class="link-button">meubels</button>
+      <button aria-label="naar meubels" class="link-button">meubels</button>
+      <button aria-label="naar meubels" class="link-button">meubels</button>
+      <button aria-label="naar meubels" class="link-button">meubels</button>
+      <button aria-label="naar meubels" class="link-button">meubels</button>
+      <button aria-label="naar meubels" class="link-button">meubels</button>
+      <button aria-label="naar meubels" class="link-button">meubels</button>
+      <button aria-label="naar meubels" class="link-button">meubels</button>
+      <button aria-label="naar meubels" class="link-button">meubels</button>
+      <button aria-label="naar meubels" class="link-button">meubels</button>
+      <button aria-label="naar meubels" class="link-button">meubels</button>
+      <button aria-label="naar meubels" class="link-button">meubels</button>
+      <button aria-label="naar meubels" class="link-button">meubels</button>
     </div>
   </main>
   <div class="bottom-bar">Copyright © 2025 - Timo & Martin</div>
