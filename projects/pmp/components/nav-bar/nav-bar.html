@@ -1,0 +1,22 @@
+<nav class="nav-bar">
+  @if (boardService.selectedGroupCard()?.parentId !== null) {
+    @for (
+      level of boardService.navigationStack();
+      track level[0];
+      let last = $last, index = $index
+    ) {
+      @let levelIndex = level[0];
+      @let levelName = level[1];
+
+      @if (!last) {
+        <button
+          class="level-button"
+          aria-label="vorige categorie"
+          (click)="this.boardService.selectLevel(levelIndex, index)"
+        >
+          {{ levelName }}
+        </button>
+      }
+    }
+  }
+</nav>

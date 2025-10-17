@@ -1,0 +1,37 @@
+:host {
+  display: flex;
+  .links-container {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 250px;
+    gap: 1rem;
+    border-left: solid 1px #555;
+    padding: 1rem 1rem;
+    overflow: auto;
+    text-transform: uppercase;
+
+    .link-button {
+      all: unset;
+      box-sizing: border-box;
+      cursor: pointer;
+      width: 100%;
+      min-height: 40px;
+      height: 40px;
+      background-color: rgb(44, 44, 44);
+      color: white;
+      border: solid 2px grey;
+      border-radius: 6px;
+      display: flex;
+
+      font-size: x-large;
+
+      justify-content: center;
+      align-items: center;
+      &:hover,
+      &:focus {
+        background-color: lightgray;
+        color: black;
+      }
+    }
+  }
+}

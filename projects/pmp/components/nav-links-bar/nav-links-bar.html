@@ -1,0 +1,12 @@
+<div class="links-container">
+  <!-- {{ links() }} -->
+  @for (card of links(); track card.id) {
+    <button
+      aria-label="naar {{ card.name }}"
+      class="link-button"
+      (click)="this.boardService.selectGroupCard(card!.id)"
+    >
+      {{ card.name }}
+    </button>
+  }
+</div>

@@ -1,0 +1,12 @@
+@use "../ui/src/styles/vars";
+@use "../ui/src/styles/colors";
+
+html,
+body,
+app-root {
+  background-color: colors.$background-color-main;
+  color: colors.$text-color-main;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}

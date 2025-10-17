@@ -1,0 +1,29 @@
+@let card = this.card();
+
+<article>
+  <h3>{{ card!.name }}</h3>
+  <div
+    class="picture-container"
+    tabindex="0"
+    (keyup.enter)="this.enounce.emit(card!.speech)"
+    (keyup.space)="this.enounce.emit(card!.speech)"
+    (click)="this.enounce.emit(card!.speech)"
+  >
+    <picture>
+      <source srcset="{{card!.src}}" type="image/jpg" />
+      <img
+        src="{{ card!.src }}"
+        width="256"
+        height="auto"
+        alt="{{ card!.name }}"
+      />
+    </picture>
+  </div>
+  @if (card?.childrenIds?.length) {
+    <nav>
+      <button (click)="this.boardService.selectGroupCard(card!.id)">
+        Bekijk {{ card!.name | lowercase }}
+      </button>
+    </nav>
+  }
+</article>

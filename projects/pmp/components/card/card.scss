@@ -1,0 +1,60 @@
+:host {
+  li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  article {
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+    min-width: 17.25rem;
+
+    border: solid 2px grey;
+    border-radius: 0.5rem;
+
+    padding: 0.5rem;
+
+    background-color: #444;
+
+    h3 {
+      margin: 0.5rem 0 0.5rem 0;
+      text-transform: uppercase; // TODO instelling uppercase/normaal/lowercase
+    }
+
+    .picture-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 16rem;
+      height: 16rem;
+      cursor: pointer;
+
+      picture {
+        img {
+          max-height: 256px;
+          object-fit: fill;
+          border-radius: 6px;
+        }
+      }
+    }
+
+    nav > button {
+      height: 2.75rem; // WCAG
+      width: 100%;
+      background-color: rgb(44, 44, 44);
+      color: white;
+      border: solid 2px grey;
+      border-radius: 6px;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        background-color: lightgray;
+        color: black;
+      }
+    }
+  }
+}
