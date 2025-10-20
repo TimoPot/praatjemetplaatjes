@@ -8,10 +8,13 @@ on:
     branches:
       - develop # Only trigger when a push occurs to the 'develop' branch
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 jobs:
   version-bumper:
     runs-on: ubuntu-latest
-    
+
     # CRITICAL CONDITION:
     # 1. Check if the push was a standard merge commit (e.g., from a PR).
     #    This prevents the job from running on direct pushes and, crucially,
@@ -23,8 +26,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           # Fetch all history and tags to allow npm version to work correctly
-          fetch-depth: 0 
-          
+          fetch-depth: 0
+
       - name: 🛠️ Setup Bun & Node
         # Setting up Node ensures the 'npm' utility for versioning is available.
         # We also install Bun as requested, for environment consistency.
@@ -40,22 +43,22 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: 🚀 Auto Bump Version (Minor)
-        # We use 'npm version' because it atomically updates package.json, 
-        # creates a tag, and optionally creates a commit. 
+        # We use 'npm version' because it atomically updates package.json,
+        # creates a tag, and optionally creates a commit.
         # We use --no-git-tag-version here because we want manual control over the commit message.
         run: |
           # Change 'patch' to 'minor' or 'major' based on your feature branch policy
           bun pm version minor --no-git-tag-version 
           echo "Version bumped to $(node -p "require('./package.json').version")"
-          
+
       - name: 💾 Commit and Push New Version to Develop
         run: |
           NEW_VERSION=$(node -p "require('./package.json').version")
-          
+
           git add package.json
           # Commit message includes [skip ci] to prevent this commit from 
           # triggering the CI pipeline again (and thus preventing a version-bump loop)
           git commit -m "CI: Bump version to v${NEW_VERSION} after merge [skip ci]"
-          
+
           # Push the version commit back to the develop branch
           git push origin develop
