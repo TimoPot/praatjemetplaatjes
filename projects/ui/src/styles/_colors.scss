@@ -1,10 +1,18 @@
 $gray-900: rgb(33, 33, 33);
 $gray-700: rgb(66, 66, 66);
 $gray-400: rgb(128, 128, 128);
+$gray-200: rgb(211, 211, 211);
 $white: white;
 $black: black;
 $red: red;
 
 $background-color-main: $gray-900;
+$background-color-lighter: $gray-700;
+$background-color-more-lighter: $gray-400;
+$background-color-light: $gray-200;
+
 $text-color-main: $white;
+$text-color-main-invert: $black;
 $text-color-error: $red;
+
+$border-color-white: $white;

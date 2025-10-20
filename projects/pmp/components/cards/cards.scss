@@ -1,3 +1,5 @@
+@use "../../../../projects/ui/src/styles/vars.scss";
+
 :host {
   .list {
     display: flex;
@@ -5,7 +7,7 @@
 
     padding: 0;
 
-    gap: 1rem;
+    gap: vars.$width-lg;
 
     list-style: none;
   }
