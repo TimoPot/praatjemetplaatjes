@@ -33,12 +33,12 @@
 
   .top-bar {
     flex: 0 0 vars.$width-xxl;
-    border-bottom: solid 1px colors.$white;
+    border-bottom: solid vars.$border-sm colors.$white;
   }
 
   .bottom-bar {
     flex: 0 0 vars.$width-xl;
-    border-top: solid 1px colors.$white;
+    border-top: solid vars.$border-sm colors.$white;
   }
 
   .content {
@@ -49,7 +49,7 @@
     @media (max-width: vars.$bp-lg) {
       flex-direction: column-reverse;
       pmp-nav-links-bar {
-        border-bottom: solid 1px colors.$gray-700;
+        border-bottom: solid vars.$border-sm colors.$gray-700;
       }
     }
 
