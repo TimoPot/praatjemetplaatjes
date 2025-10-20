@@ -46,7 +46,7 @@
     flex: 1 1 auto;
     overflow: auto;
 
-    @media (max-width: vars.$width-lg) {
+    @media (max-width: vars.$bp-lg) {
       flex-direction: column-reverse;
       pmp-nav-links-bar {
         border-bottom: solid 1px colors.$gray-700;
