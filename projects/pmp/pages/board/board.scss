@@ -1,3 +1,6 @@
+@use "../../../../projects/ui/src/styles/vars.scss";
+@use "../../../../projects/ui/src/styles/colors.scss";
+
 :host {
   display: flex;
   flex: 1 1 auto;
@@ -16,12 +19,12 @@
     align-items: center;
     justify-content: space-between;
 
-    gap: 2rem;
+    gap: vars.$width-xl;
 
-    padding: 0 1rem;
+    padding: 0 vars.$width-lg;
 
     h1 {
-      font-size: clamp(1rem, 5vw, 2rem);
+      font-size: clamp(vars.$width-lg, 5vw, vars.$width-xl);
       white-space: nowrap;
       margin: 0;
       margin-right: auto;
@@ -29,13 +32,13 @@
   }
 
   .top-bar {
-    flex: 0 0 4rem;
-    border-bottom: solid 1px white;
+    flex: 0 0 vars.$width-xxl;
+    border-bottom: solid vars.$border-sm colors.$white;
   }
 
   .bottom-bar {
-    flex: 0 0 2rem;
-    border-top: solid 1px white;
+    flex: 0 0 vars.$width-xl;
+    border-top: solid vars.$border-sm colors.$white;
   }
 
   .content {
@@ -43,13 +46,21 @@
     flex: 1 1 auto;
     overflow: auto;
 
+    @media (max-width: vars.$bp-lg) {
+      flex-direction: column-reverse;
+      pmp-nav-links-bar {
+        border-bottom: solid vars.$border-sm colors.$gray-700;
+      }
+    }
+
     .content-container {
       display: flex;
       flex-direction: column;
       flex: 1 1 auto;
-      padding: 0 1rem;
+      padding: 0 vars.$width-lg;
 
-      overflow: auto;
+      overflow-x: hidden;
+      overflow-y: auto;
 
       h2 {
         font-size: x-large;
@@ -62,8 +73,8 @@
     all: unset;
     cursor: pointer;
     border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
+    width: vars.$width-xl;
+    height: vars.$width-xl;
     display: flex;
 
     font-size: x-large;

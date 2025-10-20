@@ -1,12 +1,13 @@
-<div class="links-container">
-  <!-- {{ links() }} -->
-  @for (card of links(); track card.id) {
-    <button
-      aria-label="naar {{ card.name }}"
-      class="link-button"
-      (click)="this.boardService.selectGroupCard(card!.id)"
-    >
-      {{ card.name }}
-    </button>
-  }
-</div>
+@if (links().length > 0) {
+  <div class="links-container">
+    @for (card of links(); track card.id) {
+      <button
+        aria-label="naar {{ card.name }}"
+        class="link-button"
+        (click)="this.boardService.selectGroupCard(card!.id)"
+      >
+        {{ card.name }}
+      </button>
+    }
+  </div>
+}

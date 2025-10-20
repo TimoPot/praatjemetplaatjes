@@ -1,0 +1,29 @@
+// use for breakpoints
+$bp-sm: 375px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1440px;
+$bp-xxl: 1920px;
+
+// use for widths and heights
+$width-xsm: 0.125rem; // 2px
+$width-sm: 0.25rem;
+$width-md: 0.5rem;
+$width-lg: 1rem;
+$width-xl: 2rem;
+$width-xxl: 4rem;
+$width-full: 100%;
+
+// borders
+$border-sm: 1px;
+$border-md: 2px;
+$border-lg: 4px;
+
+// radius
+$radius-sm: 4px;
+$radius-md: 6px;
+$radius-lg: 8px;
+$radius-circle: 50%;
+
+// button TODO move to separate file
+$btn-height-wcag: 2.75rem;

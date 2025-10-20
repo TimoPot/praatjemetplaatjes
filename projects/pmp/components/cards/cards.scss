@@ -1,3 +1,5 @@
+@use "../../../../projects/ui/src/styles/vars.scss";
+
 :host {
   .list {
     display: flex;
@@ -5,9 +7,20 @@
 
     padding: 0;
 
-    gap: 1rem;
+    gap: vars.$width-lg;
 
     list-style: none;
+  }
+
+  @-webkit-keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9 0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1 1);
+    }
   }
 
   @keyframes scaleIn {
@@ -22,6 +35,7 @@
   }
 
   .scale-in {
+    -webkit-animation: scaleIn 0.5s ease forwards;
     animation: scaleIn 0.5s ease forwards;
   }
 }

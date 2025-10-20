@@ -1,12 +1,16 @@
+@use "../../../../projects/ui/src/styles/vars.scss";
+@use "../../../../projects/ui/src/styles/colors.scss";
+
 :host {
   display: flex;
+
   .links-container {
     display: flex;
     flex-direction: column;
     flex: 0 0 250px;
-    gap: 1rem;
-    border-left: solid 1px #555;
-    padding: 1rem 1rem;
+    gap: vars.$width-lg;
+    border-left: solid vars.$border-sm colors.$background-color-lighter;
+    padding: vars.$width-lg vars.$width-lg;
     overflow: auto;
     text-transform: uppercase;
 
@@ -14,13 +18,13 @@
       all: unset;
       box-sizing: border-box;
       cursor: pointer;
-      width: 100%;
-      min-height: 40px;
-      height: 40px;
-      background-color: rgb(44, 44, 44);
-      color: white;
-      border: solid 2px grey;
-      border-radius: 6px;
+      width: vars.$width-full;
+      min-height: vars.$btn-height-wcag;
+      height: vars.$btn-height-wcag;
+      background-color: colors.$background-color-main;
+      color: colors.$text-color-main;
+      border: solid vars.$border-md colors.$background-color-more-lighter;
+      border-radius: vars.$radius-md;
       display: flex;
 
       font-size: x-large;
@@ -29,8 +33,8 @@
       align-items: center;
       &:hover,
       &:focus {
-        background-color: lightgray;
-        color: black;
+        background-color: colors.$background-color-light;
+        color: colors.$text-color-main-invert;
       }
     }
   }

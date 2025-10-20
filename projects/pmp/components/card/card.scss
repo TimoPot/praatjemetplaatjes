@@ -1,26 +1,32 @@
+@use "../../../../projects/ui/src/styles/vars.scss";
+@use "../../../../projects/ui/src/styles/colors.scss";
+
 :host {
+  :hover {
+    background-color: colors.$background-color-more-lighter;
+  }
   li {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: vars.$width-md;
   }
 
   article {
-    gap: 0.5rem;
+    gap: vars.$width-md;
     display: flex;
     flex-direction: column;
     flex: 0 0 auto;
     min-width: 17.25rem;
 
-    border: solid 2px grey;
-    border-radius: 0.5rem;
+    border: solid vars.$border-md colors.$background-color-more-lighter;
+    border-radius: vars.$width-md;
 
-    padding: 0.5rem;
+    padding: vars.$width-md;
 
-    background-color: #444;
+    background-color: colors.$background-color-lighter;
 
     h3 {
-      margin: 0.5rem 0 0.5rem 0;
+      margin: vars.$width-md 0 vars.$width-md 0;
       text-transform: uppercase; // TODO instelling uppercase/normaal/lowercase
     }
 
@@ -35,6 +41,7 @@
       picture {
         img {
           max-height: 256px;
+          -o-object-fit: fill;
           object-fit: fill;
           border-radius: 6px;
         }
@@ -42,18 +49,18 @@
     }
 
     nav > button {
-      height: 2.75rem; // WCAG
+      height: vars.$btn-height-wcag; // WCAG
       width: 100%;
-      background-color: rgb(44, 44, 44);
-      color: white;
-      border: solid 2px grey;
-      border-radius: 6px;
+      background-color: colors.$background-color-main;
+      color: colors.$text-color-main;
+      border: solid vars.$border-md colors.$gray-400;
+      border-radius: vars.$radius-md;
       cursor: pointer;
 
       &:hover,
       &:focus {
-        background-color: lightgray;
-        color: black;
+        background-color: colors.$background-color-light;
+        color: colors.$text-color-main-invert;
       }
     }
   }
