@@ -1,3 +1,5 @@
+@use "../../../../projects/ui/src/styles/vars.scss";
+
 :host {
   display: flex;
   flex: 1 1 auto;
@@ -42,6 +44,14 @@
     display: flex;
     flex: 1 1 auto;
     overflow: auto;
+
+    @media (max-width: vars.$lg) {
+      /* Your CSS styles for screens 1023px and narrower go here */
+      flex-direction: column-reverse;
+      pmp-nav-links-bar {
+        border-bottom: solid 1px #555;
+      }
+    }
 
     .content-container {
       display: flex;
