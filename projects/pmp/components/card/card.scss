@@ -35,6 +35,7 @@
       picture {
         img {
           max-height: 256px;
+          -o-object-fit: fill;
           object-fit: fill;
           border-radius: 6px;
         }
