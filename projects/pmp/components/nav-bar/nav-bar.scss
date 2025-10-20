@@ -1,10 +1,12 @@
+@use "../../../../projects/ui/src/styles/vars.scss";
+@use "../../../../projects/ui/src/styles/colors.scss";
+
 :host {
   display: flex;
-  // flex: 0 1 auto;
   align-items: center;
   justify-content: space-between;
-  padding-left: 1rem;
-  border-bottom: solid 1px #555;
+  padding-left: vars.$width-lg;
+  border-bottom: solid vars.$border-sm colors.$background-color-lighter;
 
   min-height: 77px;
   max-height: 137px;
@@ -15,8 +17,8 @@
     flex-wrap: wrap;
     align-items: center;
 
-    gap: 1rem;
-    margin: 1rem 0;
+    gap: vars.$width-lg;
+    margin: vars.$width-lg 0;
 
     h1 {
       margin: 0;
@@ -42,24 +44,23 @@
 
       &.level-button {
         min-width: 276px;
-        max-height: 40px;
-        height: 40px;
-        // padding: 0 0.5rem;
+        max-height: vars.$btn-height-wcag;
+        height: vars.$btn-height-wcag;
 
-        background-color: rgb(44, 44, 44);
-        color: white;
-        border: solid 2px grey;
-        border-radius: 6px;
+        background-color: colors.$background-color-main;
+        color: colors.$text-color-main;
+        border: solid vars.$border-md colors.$gray-400;
+        border-radius: vars.$radius-md;
       }
       &.icon-button {
-        width: 2rem;
-        height: 2rem;
-        border-radius: 50%;
+        width: vars.$width-xl;
+        height: vars.$width-xl;
+        border-radius: vars.$radius-circle;
       }
       &:hover,
       &:focus {
-        background-color: lightgray;
-        color: black;
+        background-color: colors.$background-color-light;
+        color: colors.$text-color-main-invert;
       }
     }
   }
