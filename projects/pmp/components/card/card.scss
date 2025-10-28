@@ -2,6 +2,10 @@
 @use "../../../../projects/ui/src/styles/colors.scss";
 
 :host {
+  display: flex;
+  flex: auto;
+  $card-width: 17.25rem;
+
   :hover {
     background-color: colors.$background-color-more-lighter;
   }
@@ -15,8 +19,6 @@
     gap: vars.$width-md;
     display: flex;
     flex-direction: column;
-    flex: 0 0 auto;
-    min-width: 17.25rem;
 
     border: solid vars.$border-md colors.$background-color-more-lighter;
     border-radius: vars.$width-md;
@@ -34,13 +36,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 16rem;
-      height: 16rem;
       cursor: pointer;
 
       picture {
         img {
-          max-height: 256px;
+          max-height: 200px;
+          min-width: 200px;
+          width: 100%;
           -o-object-fit: fill;
           object-fit: fill;
           border-radius: 6px;
@@ -62,6 +64,12 @@
         background-color: colors.$background-color-light;
         color: colors.$text-color-main-invert;
       }
+    }
+  }
+
+  @media (max-width: vars.$bp-md) {
+    article {
+      min-width: 100%;
     }
   }
 }
