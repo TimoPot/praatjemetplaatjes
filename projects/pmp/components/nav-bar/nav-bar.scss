@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: vars.$width-lg;
+  padding: 0 vars.$width-lg;
   border-bottom: solid vars.$border-sm colors.$background-color-lighter;
 
   min-height: 77px;
@@ -34,12 +34,12 @@
       all: unset;
       box-sizing: border-box;
       cursor: pointer;
-
+      gap: 0.5rem;
       display: flex;
       justify-content: center;
       align-items: center;
 
-      font-size: x-large;
+      font-size: clamp(1rem, 1.25em, 1.5rem);
       text-transform: uppercase;
 
       &.level-button {
@@ -51,6 +51,18 @@
         color: colors.$text-color-main;
         border: solid vars.$border-md colors.$gray-400;
         border-radius: vars.$radius-md;
+
+        justify-content: flex-start;
+
+        i {
+          transform: scaleX(-1);
+          font-size: large;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
       }
       &.icon-button {
         width: vars.$width-xl;
@@ -61,6 +73,21 @@
       &:focus {
         background-color: colors.$background-color-light;
         color: colors.$text-color-main-invert;
+      }
+      &.previous-level-button {
+        display: none;
+      }
+      &.goto-level-button {
+        display: flex;
+      }
+
+      @media (max-width: vars.$bp-md) {
+        &.previous-level-button {
+          display: flex;
+        }
+        &.goto-level-button {
+          display: none;
+        }
       }
     }
   }

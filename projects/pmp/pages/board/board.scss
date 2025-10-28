@@ -47,6 +47,7 @@
     overflow: auto;
 
     @media (max-width: vars.$bp-lg) {
+      // moves links bar to top on small screens
       flex-direction: column-reverse;
       pmp-nav-links-bar {
         border-bottom: solid vars.$border-sm colors.$gray-700;

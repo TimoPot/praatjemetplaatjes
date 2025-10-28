@@ -11,6 +11,15 @@
 
     list-style: none;
   }
+  .list-item {
+    display: flex;
+  }
+
+  @media (max-width: vars.$bp-md) {
+    .list-item {
+      flex: auto;
+    }
+  }
 
   @-webkit-keyframes scaleIn {
     from {

@@ -1,11 +1,11 @@
 {
   "name": "praatjemetplaatjes",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "deploy": "ng build --base-href=/praatjemetplaatjes/",
+    "deploy": "ng build --configuration production --base-href=/praatjemetplaatjes/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "start-pwa": "http-server --proxy http://localhost:8080? -c-1 dist/praatjemetplaatjes/browser"

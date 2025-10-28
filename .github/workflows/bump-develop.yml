@@ -47,15 +47,15 @@ jobs:
           # Change 'patch' to 'minor' or 'major' based on your feature branch policy
           bun pm version minor --no-git-tag-version 
           echo "Version bumped to $(node -p "require('./package.json').version")"
-          
+
       - name: 💾 Commit and Push New Version to Develop
         run: |
           NEW_VERSION=$(node -p "require('./package.json').version")
-          
+
           git add package.json
           # Commit message includes [skip ci] to prevent this commit from 
           # triggering the CI pipeline again (and thus preventing a version-bump loop)
           git commit -m "CI: Bump version to v${NEW_VERSION} after merge [skip ci]"
-          
+
           # Push the version commit back to the develop branch
           git push origin develop
