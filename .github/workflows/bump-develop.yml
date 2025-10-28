@@ -34,7 +34,6 @@ jobs:
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-          node-version: 20
 
       # Configure Git with the bot's identity so it can commit the new version.
       - name: ⚙️ Configure Git Credentials
