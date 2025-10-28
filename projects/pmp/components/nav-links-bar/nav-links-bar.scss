@@ -14,8 +14,14 @@
     overflow: auto;
     text-transform: uppercase;
 
+    i {
+      font-size: large;
+    }
+
     .link-button {
       all: unset;
+      gap: 0.5rem;
+
       box-sizing: border-box;
       cursor: pointer;
       width: vars.$width-full;

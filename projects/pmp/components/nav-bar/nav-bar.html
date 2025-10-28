@@ -11,9 +11,13 @@
       @if (!last) {
         <button
           class="level-button"
-          aria-label="vorige categorie"
+          aria-label="vorige categorie {{ levelName }}"
           (click)="this.boardService.selectLevel(levelIndex, index)"
         >
+          <i
+            class="fa-regular fa-solid fa-turn-up"
+            style="transform: scaleX(-1)"
+          ></i>
           {{ levelName }}
         </button>
       }
