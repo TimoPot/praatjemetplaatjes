@@ -2,12 +2,14 @@
 @use "../../../../projects/ui/src/styles/colors.scss";
 
 :host {
+  $width-links-bar: 309px;
+
   display: flex;
 
   .links-container {
     display: flex;
     flex-direction: column;
-    flex: 0 0 250px;
+    flex: 0 0 $width-links-bar;
     gap: vars.$width-lg;
     border-left: solid vars.$border-sm colors.$background-color-lighter;
     padding: vars.$width-lg vars.$width-lg;
@@ -40,8 +42,8 @@
 
       font-size: clamp(1rem, 1.25em, 1.5rem);
       justify-content: flex-start;
-      // justify-content: center;
       align-items: center;
+
       &:hover,
       &:focus {
         background-color: colors.$background-color-light;

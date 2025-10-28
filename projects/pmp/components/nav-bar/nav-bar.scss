@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: vars.$width-lg;
+  padding: 0 vars.$width-lg;
   border-bottom: solid vars.$border-sm colors.$background-color-lighter;
 
   min-height: 77px;
@@ -73,6 +73,21 @@
       &:focus {
         background-color: colors.$background-color-light;
         color: colors.$text-color-main-invert;
+      }
+      &.previous-level-button {
+        display: none;
+      }
+      &.goto-level-button {
+        display: flex;
+      }
+
+      @media (max-width: vars.$bp-md) {
+        &.previous-level-button {
+          display: flex;
+        }
+        &.goto-level-button {
+          display: none;
+        }
       }
     }
   }
