@@ -16,6 +16,11 @@
 
     i {
       font-size: large;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .link-button {
@@ -33,9 +38,9 @@
       border-radius: vars.$radius-md;
       display: flex;
 
-      font-size: x-large;
-
-      justify-content: center;
+      font-size: clamp(1rem, 1.25em, 1.5rem);
+      justify-content: flex-start;
+      // justify-content: center;
       align-items: center;
       &:hover,
       &:focus {

@@ -39,7 +39,7 @@
       justify-content: center;
       align-items: center;
 
-      font-size: x-large;
+      font-size: clamp(1rem, 1.25em, 1.5rem);
       text-transform: uppercase;
 
       &.level-button {
@@ -52,9 +52,16 @@
         border: solid vars.$border-md colors.$gray-400;
         border-radius: vars.$radius-md;
 
+        justify-content: flex-start;
+
         i {
           transform: scaleX(-1);
           font-size: large;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
       }
       &.icon-button {
