@@ -9,8 +9,8 @@
   border-bottom: solid vars.$border-sm colors.$background-color-lighter;
 
   min-height: 77px;
-  // max-height: 137px;
-  overflow: hidden;
+  max-height: 137px;
+  overflow: auto;
 
   .nav-bar {
     display: flex;
@@ -89,14 +89,6 @@
           display: none;
         }
       }
-    }
-  }
-
-  @media (max-width: vars.$bp-md) {
-    padding: 0 vars.$width-md;
-    min-height: 44px;
-    .nav-bar {
-      margin: 0;
     }
   }
 }
