@@ -22,17 +22,10 @@
     display: flex;
   }
 
-  @media (max-width: vars.$bp-lg) {
-    .list-item {
-      flex: 1 0 33%;
-      max-width: calc(50% - (vars.$width-lg / 2));
-    }
-  }
-
+  // @media (max-width: vars.$bp-md) {
   @media (max-width: vars.$bp-sm) {
     .list-item {
       flex: auto;
-      max-width: initial;
     }
   }
 
