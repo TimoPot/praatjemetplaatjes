@@ -51,4 +51,17 @@
       }
     }
   }
+
+  @media (max-width: vars.$bp-md) {
+    .links-container {
+      flex: none;
+      padding: 0;
+      border-left: none;
+
+      .link-button {
+        border: none;
+        font-size: 1rem;
+      }
+    }
+  }
 }
