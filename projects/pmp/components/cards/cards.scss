@@ -1,26 +1,44 @@
 @use "../../../../projects/ui/src/styles/vars.scss";
 
 :host {
+  display: flex;
+
+  .cards-container {
+    display: flex;
+    flex: auto;
+  }
+
   .list {
     display: flex;
+    flex: auto;
     flex-wrap: wrap;
+    gap: vars.$width-lg;
 
     padding: 0;
 
-    gap: vars.$width-lg;
-
     list-style: none;
   }
+
   .list-item {
     display: flex;
   }
 
-  @media (max-width: vars.$bp-md) {
+  // scale cards on screens smaller than 1024px
+  @media (max-width: vars.$bp-lg) {
     .list-item {
-      flex: auto;
+      flex: 1 0 33%;
+      max-width: calc(50% - (vars.$width-lg / 2));
     }
   }
 
+  @media (max-width: vars.$bp-sm) {
+    .list-item {
+      flex: auto;
+      max-width: initial;
+    }
+  }
+
+  // scale cards on very small screens
   @-webkit-keyframes scaleIn {
     from {
       opacity: 0;
@@ -46,5 +64,11 @@
   .scale-in {
     -webkit-animation: scaleIn 0.5s ease forwards;
     animation: scaleIn 0.5s ease forwards;
+  }
+
+  @media (max-width: vars.$bp-md) {
+    .list {
+      gap: vars.$width-md;
+    }
   }
 }

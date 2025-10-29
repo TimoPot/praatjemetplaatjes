@@ -8,7 +8,9 @@
       <i class="fa-regular fa-solid fa-gear"></i>
     </button>
   </nav>
-  <pmp-nav-bar></pmp-nav-bar>
+  @if (boardService.selectedGroupCard()?.parentId !== null) {
+    <pmp-nav-bar></pmp-nav-bar>
+  }
   <main class="content">
     <div class="content-container">
       <h2>{{ boardService.selectedGroupCard()?.name }}</h2>

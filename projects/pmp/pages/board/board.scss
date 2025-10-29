@@ -18,9 +18,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     gap: vars.$width-xl;
-
     padding: 0 vars.$width-lg;
 
     h1 {
@@ -82,5 +80,39 @@
 
     justify-content: center;
     align-items: center;
+  }
+
+  @media (max-width: vars.$bp-md) {
+    .top-bar,
+    .bottom-bar {
+      gap: vars.$width-lg;
+      padding: 0 vars.$width-md;
+      h1 {
+        margin-right: initial;
+      }
+    }
+    .top-bar {
+      flex: 0 0 44px;
+    }
+    .bottom-bar {
+      font-size: small;
+      justify-content: center;
+    }
+    .content {
+      .content-container {
+        padding: 0 vars.$width-md;
+
+        h2 {
+          font-size: larger;
+          margin-top: calc(vars.$width-md + vars.$width-sm);
+          margin-bottom: 0;
+        }
+      }
+    }
+    .icon-button {
+      width: vars.$width-lg;
+      height: vars.$width-lg;
+      font-size: large;
+    }
   }
 }

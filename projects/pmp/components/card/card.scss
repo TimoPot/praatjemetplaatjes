@@ -2,9 +2,16 @@
 @use "../../../../projects/ui/src/styles/colors.scss";
 
 :host {
+  $gap-sml: vars.$width-sm;
+  $gap-nrm: vars.$width-md;
+
+  $picture-min-min-width: 140px;
+  $picture-min-max-height: 140px;
+  $picture-max-min-width: 180px;
+  $picture-max-max-height: 180px;
+
   display: flex;
   flex: auto;
-  $card-width: 17.25rem;
 
   :hover {
     background-color: colors.$background-color-more-lighter;
@@ -19,16 +26,17 @@
     gap: vars.$width-md;
     display: flex;
     flex-direction: column;
+    flex: auto;
 
     border: solid vars.$border-md colors.$background-color-more-lighter;
     border-radius: vars.$width-md;
 
-    padding: vars.$width-md;
+    padding: $gap-nrm;
 
     background-color: colors.$background-color-lighter;
 
     h3 {
-      margin: vars.$width-md 0 vars.$width-md 0;
+      margin: $gap-nrm 0 $gap-nrm 0;
       text-transform: uppercase; // TODO instelling uppercase/normaal/lowercase
     }
 
@@ -40,8 +48,16 @@
 
       picture {
         img {
-          max-height: 200px;
-          min-width: 200px;
+          max-height: clamp(
+            $picture-min-max-height,
+            160px,
+            $picture-max-max-height
+          );
+          min-width: clamp(
+            $picture-min-min-width,
+            160px,
+            $picture-max-min-width
+          );
           width: 100%;
           -o-object-fit: fill;
           object-fit: fill;
@@ -67,9 +83,17 @@
     }
   }
 
-  @media (max-width: vars.$bp-md) {
+  // @media (max-width: vars.$bp-md) {
+  @media (max-width: vars.$bp-sm) {
     article {
       min-width: 100%;
+      padding: vars.$width-sm;
+      border-width: vars.$border-sm;
+
+      h3 {
+        font-size: medium;
+        margin: vars.$width-sm 0 vars.$width-sm 0;
+      }
     }
   }
 }
