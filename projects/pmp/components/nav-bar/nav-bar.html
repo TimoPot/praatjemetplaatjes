@@ -1,42 +1,40 @@
 <nav class="nav-bar">
-  @if (boardService.selectedGroupCard()?.parentId !== null) {
-    @for (
-      level of boardService.navigationStack();
-      track level[0];
-      let last = $last, index = $index
-    ) {
-      @let levelIndex = level[0];
-      @let levelName = level[1];
+  @for (
+    level of boardService.navigationStack();
+    track level[0];
+    let last = $last, index = $index
+  ) {
+    @let levelIndex = level[0];
+    @let levelName = level[1];
 
-      <!-- Previous Level Button on small screens -->
-      @if (index === boardService.navigationStack()!.length - 2) {
-        <button
-          class="level-button previous-level-button"
-          aria-label="vorige categorie {{ levelName }}"
-          (click)="this.boardService.selectLevel(levelIndex, index)"
-        >
-          <i
-            class="fa-regular fa-solid fa-turn-up"
-            style="transform: scaleX(-1)"
-          ></i>
-          vorige categorie
-        </button>
-      }
+    <!-- Previous Level Button on small screens -->
+    @if (index === boardService.navigationStack()!.length - 2) {
+      <button
+        class="level-button previous-level-button"
+        aria-label="vorige categorie {{ levelName }}"
+        (click)="this.boardService.selectLevel(levelIndex, index)"
+      >
+        <i
+          class="fa-regular fa-solid fa-turn-up"
+          style="transform: scaleX(-1)"
+        ></i>
+        vorige categorie
+      </button>
+    }
 
-      <!-- Goto Level Button on bigger screens-->
-      @if (!last) {
-        <button
-          class="level-button goto-level-button"
-          aria-label="vorige categorie {{ levelName }}"
-          (click)="this.boardService.selectLevel(levelIndex, index)"
-        >
-          <i
-            class="fa-regular fa-solid fa-turn-up"
-            style="transform: scaleX(-1)"
-          ></i>
-          {{ levelName }}
-        </button>
-      }
+    <!-- Goto Level Button on bigger screens-->
+    @if (!last) {
+      <button
+        class="level-button goto-level-button"
+        aria-label="vorige categorie {{ levelName }}"
+        (click)="this.boardService.selectLevel(levelIndex, index)"
+      >
+        <i
+          class="fa-regular fa-solid fa-turn-up"
+          style="transform: scaleX(-1)"
+        ></i>
+        {{ levelName }}
+      </button>
     }
   }
 </nav>
