@@ -1,15 +1,8 @@
 @use "../../../../projects/ui/src/styles/vars.scss";
 
 :host {
-  display: flex;
-
-  .cards-container {
-    display: flex;
-    flex: auto;
-  }
   .list {
     display: flex;
-    flex: auto;
     flex-wrap: wrap;
 
     padding: 0;
@@ -22,8 +15,7 @@
     display: flex;
   }
 
-  // @media (max-width: vars.$bp-md) {
-  @media (max-width: vars.$bp-sm) {
+  @media (max-width: vars.$bp-md) {
     .list-item {
       flex: auto;
     }

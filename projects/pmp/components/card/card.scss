@@ -82,8 +82,7 @@
     }
   }
 
-  // @media (max-width: vars.$bp-md) {
-  @media (max-width: vars.$bp-sm) {
+  @media (max-width: vars.$bp-md) {
     article {
       min-width: 100%;
       padding: vars.$width-sm;

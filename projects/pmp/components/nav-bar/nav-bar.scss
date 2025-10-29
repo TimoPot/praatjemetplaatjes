@@ -9,6 +9,7 @@
   border-bottom: solid vars.$border-sm colors.$background-color-lighter;
 
   min-height: 77px;
+  // max-height: 137px;
   overflow: hidden;
 
   .nav-bar {
@@ -42,7 +43,7 @@
       text-transform: uppercase;
 
       &.level-button {
-        padding-right: vars.$width-lg;
+        min-width: 276px;
         max-height: vars.$btn-height-wcag;
         height: vars.$btn-height-wcag;
 
@@ -83,8 +84,6 @@
       @media (max-width: vars.$bp-md) {
         &.previous-level-button {
           display: flex;
-          font-size: 1rem;
-          border: none;
         }
         &.goto-level-button {
           display: none;
@@ -94,10 +93,8 @@
   }
 
   @media (max-width: vars.$bp-md) {
-    padding: 0;
+    padding: 0 vars.$width-md;
     min-height: 44px;
-    height: 44px;
-    max-height: 44px;
     .nav-bar {
       margin: 0;
     }
