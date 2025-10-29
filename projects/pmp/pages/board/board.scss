@@ -83,28 +83,4 @@
     justify-content: center;
     align-items: center;
   }
-
-  @media (max-width: vars.$bp-md) {
-    .top-bar,
-    .bottom-bar {
-      gap: vars.$width-lg;
-      padding: 0 vars.$width-md;
-    }
-    .content {
-      .content-container {
-        padding: 0 vars.$width-md;
-
-        h2 {
-          font-size: larger;
-          margin-top: calc(vars.$width-md + vars.$width-sm);
-          margin-bottom: 0;
-        }
-      }
-    }
-    .icon-button {
-      width: vars.$width-lg;
-      height: vars.$width-lg;
-      font-size: large;
-    }
-  }
 }

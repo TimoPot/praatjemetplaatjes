@@ -47,10 +47,4 @@
     -webkit-animation: scaleIn 0.5s ease forwards;
     animation: scaleIn 0.5s ease forwards;
   }
-
-  @media (max-width: vars.$bp-md) {
-    .list {
-      gap: vars.$width-md;
-    }
-  }
 }
