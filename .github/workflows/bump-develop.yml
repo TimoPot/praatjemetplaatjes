@@ -4,10 +4,11 @@
 name: 🔢 Auto Version Bump on Develop Merge
 
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches:
-      - develop # Only trigger when a push occurs to the 'develop' branch
-
+      - develop
+      
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -20,7 +21,7 @@ jobs:
     #    and that it was a feat/ branch
     #    This prevents the job from running on direct pushes and, crucially,
     #    prevents the version bump's own commit from triggering an infinite loop.
-    if: github.event.pull_request.merged == true && contains(github.event.pull_request.head.ref, 'feat/')
+    if: github.event.pull_request.merged == true && contains(github.event.pull_request.head.ref, 'feat')
    
     steps:
       - name: ⬇️ Checkout Repository
