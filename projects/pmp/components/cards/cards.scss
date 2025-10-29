@@ -12,10 +12,9 @@
     display: flex;
     flex: auto;
     flex-wrap: wrap;
+    gap: vars.$width-lg;
 
     padding: 0;
-
-    gap: vars.$width-lg;
 
     list-style: none;
   }
