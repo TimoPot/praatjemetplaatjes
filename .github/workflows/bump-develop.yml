@@ -8,16 +8,20 @@ on:
     branches:
       - develop # Only trigger when a push occurs to the 'develop' branch
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 jobs:
   version-bumper:
     runs-on: ubuntu-latest
     
     # CRITICAL CONDITION:
-    # 1. Check if the push was a standard merge commit (e.g., from a PR).
+    # 1. Check if the push was a standard PR merge commit (e.g., from a PR).
+    #    and that it was a feat/ branch
     #    This prevents the job from running on direct pushes and, crucially,
     #    prevents the version bump's own commit from triggering an infinite loop.
-    if: contains(github.event.head_commit.message, 'Merge pull request')
-
+    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'feat/')
+   
     steps:
       - name: ⬇️ Checkout Repository
         uses: actions/checkout@v4
