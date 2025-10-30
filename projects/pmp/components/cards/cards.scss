@@ -27,11 +27,20 @@
   @media (max-width: vars.$bp-lg) {
     .list-item {
       flex: 1 0 33%;
+      max-width: calc(33% - 0.54rem);
+    }
+  }
+
+  // scale cards on screens smaller than 545px
+  @media (max-width: 545px) {
+    .list-item {
+      flex: 1 0 33%;
       max-width: calc(50% - (vars.$width-lg / 2));
     }
   }
 
-  @media (max-width: vars.$bp-sm) {
+  // @media (max-width: vars.$bp-sm) {
+  @media (max-width: 365px) {
     .list-item {
       flex: auto;
       max-width: initial;
