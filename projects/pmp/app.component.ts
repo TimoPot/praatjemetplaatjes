@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { UpdateService } from './app.update.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,8 @@ import { RouterOutlet } from '@angular/router';
   imports: [RouterOutlet],
 })
 export class AppComponent {
+  private readonly updateService = inject(UpdateService);
+
   title = 'Laat Maar Zien`';
 
   // CON: laptops with touch screens are considere mobile also
