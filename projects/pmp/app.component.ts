@@ -11,7 +11,7 @@ import { UpdateService } from './app.update.service';
 export class AppComponent {
   private readonly updateService = inject(UpdateService);
 
-  title = 'Laat Maar Zien`';
+  title = 'Praat met plaatjes';
 
   // CON: laptops with touch screens are considere mobile also
   // isMobile = this._isMobile();
