@@ -1,0 +1,20 @@
+@let _updateDtatus = updateStatus();
+@let _version = version();
+
+<div class="bottom-bar">
+  Copyright © 2025 - Timo & Martin |
+  @switch (_updateDtatus) {
+    @case ("idle") {
+      {{ _version }}
+    }
+    @case ("updating") {
+      Updating...
+    }
+    @case ("ready") {
+      {{ _version }}
+    }
+    @case ("error") {
+      updating error!
+    }
+  }
+</div>
