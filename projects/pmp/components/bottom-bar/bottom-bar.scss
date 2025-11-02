@@ -1,0 +1,28 @@
+@use "../../../../projects/ui/src/styles/vars.scss";
+@use "../../../../projects/ui/src/styles/colors.scss";
+
+:host {
+  display: flex;
+  flex: 0 0 2rem;
+  border-top: solid vars.$border-sm colors.$white;
+
+  .bottom-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: vars.$width-xl;
+    padding: 0 vars.$width-lg;
+  }
+
+  @media (max-width: vars.$bp-md) {
+    flex: 0 0 1.5rem;
+
+    .bottom-bar {
+      flex: 1 1 auto;
+      gap: vars.$width-lg;
+      padding: 0 vars.$width-md;
+      font-size: small;
+      justify-content: center;
+    }
+  }
+}

@@ -20,7 +20,27 @@
       [links]="boardService.selectedLinkCards()"
     ></pmp-nav-links-bar>
   </main>
-  <div class="bottom-bar">
-    Copyright © 2025 - Timo & Martin | {{ version }}
-  </div>
+  <pmp-bottom-bar
+    [updateStatus]="updateService.updateStatus()"
+    [version]="version"
+  ></pmp-bottom-bar>
+  <!-- <div class="bottom-bar">
+    Copyright © 2025 - Timo & Martin |
+    @if (updateService.updateStatus(); as updateStatus) {
+      @switch (updateStatus) {
+        @case ("idle") {
+          {{ version }}
+        }
+        @case ("updating") {
+          Updating...
+        }
+        @case ("ready") {
+          {{ version }}
+        }
+        @case ("error") {
+          updating error!
+        }
+      }
+    }
+  </div> -->
 </div>
