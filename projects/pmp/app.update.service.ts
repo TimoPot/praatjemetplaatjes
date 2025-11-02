@@ -38,8 +38,8 @@ export class UpdateService {
       if (!lastReload || now - +lastReload > 10_000) {
         localStorage.setItem('lastReload', now.toString());
         await this.swUpdate.activateUpdate();
-        this.setUpdateStatus('ready');
         document.location.reload();
+        this.setUpdateStatus('ready');
       }
     } catch (err) {
       this.setUpdateStatus('error');
