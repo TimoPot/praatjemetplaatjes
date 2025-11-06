@@ -8,35 +8,34 @@ on:
     types: [closed]
     branches:
       - develop
-      
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
   version-bumper:
     runs-on: ubuntu-latest
-    
+
     # CRITICAL CONDITION:
     # 1. Check if the push was a standard PR merge commit (e.g., from a PR).
     #    and that it was a feat/ branch
     #    This prevents the job from running on direct pushes and, crucially,
     #    prevents the version bump's own commit from triggering an infinite loop.
-    if: github.event.pull_request.merged == true && contains(github.event.pull_request.head.ref, 'feat')
-   
+    if: github.event.pull_request.merged == true && (contains(github.event.pull_request.head.ref, 'feat') || contains(github.event.pull_request.head.ref, 'feature'))
+
     steps:
       - name: ⬇️ Checkout Repository
         uses: actions/checkout@v4
         with:
           # Fetch all history and tags to allow npm version to work correctly
-          fetch-depth: 0 
-          
+          fetch-depth: 0
+
       - name: 🛠️ Setup Bun & Node
         # Setting up Node ensures the 'npm' utility for versioning is available.
         # We also install Bun as requested, for environment consistency.
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-          node-version: 20
 
       # Configure Git with the bot's identity so it can commit the new version.
       - name: ⚙️ Configure Git Credentials
@@ -45,8 +44,8 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: 🚀 Auto Bump Version (Minor)
-        # We use 'npm version' because it atomically updates package.json, 
-        # creates a tag, and optionally creates a commit. 
+        # We use 'npm version' because it atomically updates package.json,
+        # creates a tag, and optionally creates a commit.
         # We use --no-git-tag-version here because we want manual control over the commit message.
         run: |
           # Change 'patch' to 'minor' or 'major' based on your feature branch policy
