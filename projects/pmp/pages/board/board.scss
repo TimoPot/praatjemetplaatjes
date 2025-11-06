@@ -36,7 +36,7 @@
   .content {
     display: flex;
     flex: 1 1 auto;
-    overflow: auto;
+    overflow: hidden;
 
     @media (max-width: vars.$bp-lg) {
       // moves links bar to top on small screens

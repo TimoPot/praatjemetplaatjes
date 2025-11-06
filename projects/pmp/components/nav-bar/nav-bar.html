@@ -11,14 +11,14 @@
     @if (index === boardService.navigationStack()!.length - 2) {
       <button
         class="level-button previous-level-button"
-        aria-label="vorige categorie {{ levelName }}"
+        aria-label="ga terug naar {{ levelName }}"
         (click)="this.boardService.selectLevel(levelIndex, index)"
       >
         <i
           class="fa-regular fa-solid fa-turn-up"
           style="transform: scaleX(-1)"
         ></i>
-        vorige categorie
+        {{ levelName }}
       </button>
     }
 
@@ -26,7 +26,7 @@
     @if (!last) {
       <button
         class="level-button goto-level-button"
-        aria-label="vorige categorie {{ levelName }}"
+        aria-label="ga terug naar {{ levelName }}"
         (click)="this.boardService.selectLevel(levelIndex, index)"
       >
         <i

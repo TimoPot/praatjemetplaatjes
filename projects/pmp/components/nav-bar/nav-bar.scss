@@ -84,6 +84,7 @@
         &.previous-level-button {
           display: flex;
           font-size: 1rem;
+          flex: 1 1 auto;          
           border: none;
         }
         &.goto-level-button {
@@ -100,6 +101,7 @@
     max-height: 44px;
     .nav-bar {
       margin: 0;
+      flex: 1 1 auto;
     }
   }
 }
