@@ -2,6 +2,7 @@ import { LowerCasePipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   inject,
   input,
   output,
@@ -23,4 +24,9 @@ export class Card {
   readonly enounce = output<string>();
 
   boardService = inject(BoardService);
+
+  capitalizedName = computed(() => {
+    const name = this.card()!.name;
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  });
 }
