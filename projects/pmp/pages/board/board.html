@@ -13,7 +13,12 @@
   }
   <main class="content">
     <div class="content-container">
-      <h2>{{ boardService.selectedGroupCard()?.name }}</h2>
+      <h2>
+        {{
+          boardService.selectedGroupCard()?.name?.charAt(0)!.toUpperCase() +
+            boardService.selectedGroupCard()?.name?.slice(1)
+        }}
+      </h2>
       <pmp-cards [cards]="boardService.cardsToDisplay() || []"></pmp-cards>
     </div>
     <pmp-nav-links-bar
@@ -24,23 +29,4 @@
     [updateStatus]="updateService.updateStatus()"
     [version]="version"
   ></pmp-bottom-bar>
-  <!-- <div class="bottom-bar">
-    Copyright © 2025 - Timo & Martin |
-    @if (updateService.updateStatus(); as updateStatus) {
-      @switch (updateStatus) {
-        @case ("idle") {
-          {{ version }}
-        }
-        @case ("updating") {
-          Updating...
-        }
-        @case ("ready") {
-          {{ version }}
-        }
-        @case ("error") {
-          updating error!
-        }
-      }
-    }
-  </div> -->
 </div>

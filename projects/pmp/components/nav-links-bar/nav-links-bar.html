@@ -7,7 +7,7 @@
         (click)="this.boardService.selectGroupCard(card!.id)"
       >
         <i class="fa-regular fa-solid fa-arrow-right"></i>
-        {{ card.name }}
+        {{ card.name.charAt(0).toUpperCase() + card.name.slice(1) }}
       </button>
     }
   </div>
