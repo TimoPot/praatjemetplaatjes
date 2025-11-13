@@ -26,7 +26,6 @@
     h2 {
       margin: 0;
       margin-right: auto;
-      text-transform: uppercase;
     }
 
     button {
@@ -39,7 +38,6 @@
       align-items: center;
 
       font-size: clamp(1rem, 1.25em, 1.5rem);
-      text-transform: uppercase;
 
       &.level-button {
         padding-right: vars.$width-lg;
@@ -84,7 +82,7 @@
         &.previous-level-button {
           display: flex;
           font-size: 1rem;
-          flex: 1 1 auto;          
+          flex: 1 1 auto;
           border: none;
         }
         &.goto-level-button {
