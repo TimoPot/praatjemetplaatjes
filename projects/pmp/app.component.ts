@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { UpdateService } from './app.update.service';
 
@@ -7,6 +7,7 @@ import { UpdateService } from './app.update.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   imports: [RouterOutlet],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
   private readonly updateService = inject(UpdateService);

@@ -6,13 +6,14 @@ import { NavLinksBar } from 'projects/pmp/components/nav-links-bar/nav-links-bar
 import { appVersion } from 'projects/pmp/environments/version';
 import { UpdateService } from 'projects/pmp/app.update.service';
 import { BottomBar } from 'projects/pmp/components/bottom-bar/bottom-bar';
+import { GestureDirective } from 'projects/pmp/shared/directives/gesture';
 
 @Component({
   selector: 'pmp-board',
   templateUrl: './board.html',
   styleUrl: './board.scss',
   standalone: true,
-  imports: [Cards, NavBar, NavLinksBar, BottomBar],
+  imports: [Cards, NavBar, NavLinksBar, BottomBar, GestureDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Board {
@@ -25,5 +26,15 @@ export class Board {
   constructor() {
     // start with home board
     this.boardService.selectHome();
+  }
+
+  handleSwipeLeft() {
+    console.log('Swipe naar links gedetecteerd');
+    // TODO openen van de snellinks balk
+  }
+
+  handleSwipeRight() {
+    console.log('Swipe naar rechts gedetecteerd');
+    // TODO sluiten van de snellinks balk
   }
 }
