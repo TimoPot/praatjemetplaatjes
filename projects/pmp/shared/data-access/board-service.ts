@@ -22,7 +22,7 @@ export interface BoardState {
   allCards: Card[];
   selectedGroupCard?: Card;
   cardsToDisplay: Card[] | null;
-  navigationStack?: navigationStackTuple[];
+  navigationStack?: navigationStackTuple[]; // TODO move to other state???
 }
 
 @Injectable({
@@ -74,7 +74,7 @@ export class BoardService {
     const selectedGroupCard = this.getCardByID(cardId);
     if (!selectedGroupCard) return; // early exit
 
-    const ids = this.getChildrenIDsofCard(selectedGroupCard.parentId) || [];
+    const ids = this.getChildrenIDsOfCard(selectedGroupCard.parentId) || [];
 
     this.state.update((state) => ({
       ...state,
@@ -140,7 +140,7 @@ export class BoardService {
     );
   }
 
-  private getChildrenIDsofCard(parentId: number | null) {
+  private getChildrenIDsOfCard(parentId: number | null) {
     if (parentId === null) return []; //early return
 
     return this.getCardByID(parentId)?.childrenIds;

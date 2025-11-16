@@ -1,10 +1,6 @@
 @use "../ui/src/styles/vars";
 @use "../ui/src/styles/colors";
 
-html {
-  touch-action: none;
-}
-
 html,
 body,
 app-root {

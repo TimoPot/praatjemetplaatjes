@@ -47,6 +47,8 @@
     }
 
     .content-container {
+      touch-action: pan-y;
+
       display: flex;
       flex-direction: column;
       flex: 1 1 auto;

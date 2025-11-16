@@ -9,8 +9,6 @@
   }
 
   .list {
-    touch-action: pan-y; // do not remove. used for swipe detection on cards
-
     display: flex;
     flex: auto;
     flex-wrap: wrap;
