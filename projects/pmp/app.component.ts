@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { UpdateService } from './app.update.service';
+import { DeviceDetectorService } from './shared/services/device-detector-service';
 
 @Component({
   selector: 'app-root',
@@ -10,17 +11,8 @@ import { UpdateService } from './app.update.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
+  readonly deviceDetector = inject(DeviceDetectorService);
   private readonly updateService = inject(UpdateService);
 
   title = 'Praat met plaatjes';
-
-  // CON: laptops with touch screens are considere mobile also
-  // isMobile = this._isMobile();
-
-  // private _isMobile(): boolean {
-  //   // Check for maxTouchPoints > 0 (modern browsers)
-  //   const check = 'maxTouchPoints' in navigator && navigator.maxTouchPoints > 0;
-  //   console.log(`isMobile: ${check}`);
-  //   return check;
-  // }
 }
