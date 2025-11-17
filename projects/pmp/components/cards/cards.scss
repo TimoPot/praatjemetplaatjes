@@ -23,7 +23,7 @@
     display: flex;
   }
 
-  // scale cards on screens smaller than 1024px
+  // scale cards on screens smaller than 1366px (tablets and phones)
   @media (max-width: vars.$bp-lg) {
     .list-item {
       flex: 1 0 33%;
