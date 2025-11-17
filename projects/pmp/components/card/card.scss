@@ -6,8 +6,10 @@
   $gap-nrm: vars.$width-md;
 
   $picture-min-min-width: 140px;
-  $picture-min-max-height: 140px;
   $picture-max-min-width: 180px;
+  $picture-min-max-width: 180px;
+  $picture-max-max-width: 220px;
+  $picture-min-max-height: 140px;
   $picture-max-max-height: 180px;
 
   display: flex;
@@ -23,8 +25,6 @@
   }
 
   article {
-    // touch-action: manipulation;
-
     gap: vars.$width-md;
     display: flex;
     flex-direction: column;
@@ -42,8 +42,6 @@
     }
 
     .picture-container {
-      // touch-action: manipulation;
-
       display: flex;
       justify-content: center;
       align-items: center;
@@ -62,6 +60,11 @@
             $picture-min-min-width,
             160px,
             $picture-max-min-width
+          );
+          max-width: clamp(
+            $picture-min-max-width,
+            200px,
+            $picture-max-max-width
           );
           width: 100%;
           -o-object-fit: fill;

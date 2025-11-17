@@ -2,7 +2,7 @@
 @use "../../../../projects/ui/src/styles/colors.scss";
 
 :host {
-  $width-links-bar: 309px;
+  $width-links-bar: 260px;
 
   display: flex;
 
@@ -11,8 +11,8 @@
     flex-direction: column;
     flex: 0 0 $width-links-bar;
     gap: vars.$width-lg;
-    border-left: solid vars.$border-sm colors.$background-color-lighter;
-    padding: vars.$width-lg vars.$width-lg;
+    border-right: solid vars.$border-sm colors.$background-color-lighter;
+    padding: 0 vars.$width-lg vars.$width-lg vars.$width-lg;
     overflow-x: hidden;
     overflow-y: auto;
 
@@ -41,6 +41,8 @@
       display: flex;
 
       font-size: clamp(1rem, 1.25em, 1.5rem);
+      line-height: 1.15rem;
+
       justify-content: flex-start;
       align-items: center;
 

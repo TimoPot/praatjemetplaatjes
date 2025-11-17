@@ -17,6 +17,9 @@
     <pmp-nav-bar></pmp-nav-bar>
   }
   <main class="content">
+    <pmp-nav-links-bar
+      [links]="boardService.selectedLinkCards()"
+    ></pmp-nav-links-bar>
     <div class="content-container">
       <h2>
         {{
@@ -26,9 +29,6 @@
       </h2>
       <pmp-cards [cards]="boardService.cardsToDisplay() || []"></pmp-cards>
     </div>
-    <pmp-nav-links-bar
-      [links]="boardService.selectedLinkCards()"
-    ></pmp-nav-links-bar>
   </main>
   <pmp-bottom-bar
     [updateStatus]="updateService.updateStatus()"
