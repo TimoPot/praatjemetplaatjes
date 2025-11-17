@@ -1,6 +1,9 @@
 @if (links().length > 0) {
   <div class="links-container">
-    <h2>Snel naar</h2>
+    <div class="top">
+      <h2>Snel naar</h2>
+      <i class="fa-regular fa-solid fa-forward-fast"></i>
+    </div>
     @for (card of links(); track card.id) {
       <button
         aria-label="snel naar {{ card.name }}"

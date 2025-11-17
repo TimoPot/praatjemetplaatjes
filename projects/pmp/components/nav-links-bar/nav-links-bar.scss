@@ -16,6 +16,16 @@
     overflow-x: hidden;
     overflow-y: auto;
 
+    .top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+
+      i {
+        width: auto;
+      }
+    }
+
     i {
       font-size: large;
       width: 40px;
