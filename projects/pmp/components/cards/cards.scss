@@ -24,7 +24,17 @@
   }
 
   // scale cards on screens smaller than 1366px (tablets and phones)
+  // 4 cards per row
   @media (max-width: vars.$bp-lg) {
+    .list-item {
+      flex: 1 0 25%;
+      max-width: calc(25% - 0.75rem);
+    }
+  }
+
+  // scale cards on screens smaller than 768px
+  // 3 cards per row
+  @media (max-width: vars.$bp-md) {
     .list-item {
       flex: 1 0 33%;
       max-width: calc(33% - 0.54rem);
@@ -32,6 +42,7 @@
   }
 
   // scale cards on screens smaller than 545px
+  // 2 cards per row
   @media (max-width: 545px) {
     .list-item {
       flex: 1 0 33%;
