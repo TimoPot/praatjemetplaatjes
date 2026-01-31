@@ -37,6 +37,7 @@
 
     h3 {
       margin: $gap-nrm 0 $gap-nrm 0;
+      color: colors.$text-color-main;
     }
 
     .picture-container {
@@ -71,8 +72,8 @@
       > button {
         height: vars.$btn-height-wcag; // WCAG
         width: 100%;
-        background-color: colors.$background-color-main;
-        color: colors.$text-color-main;
+        background-color: rgb(47, 111, 115);
+        color: colors.$white;
         border: solid vars.$border-md colors.$gray-400;
         border-radius: vars.$radius-md;
         cursor: pointer;
