@@ -30,7 +30,7 @@
 
   .top-bar {
     flex: 0 0 vars.$width-xxl;
-    border-bottom: solid vars.$border-sm colors.$white;
+    border-bottom: solid vars.$border-sm rgb(47, 111, 115);
   }
 
   .content {
@@ -42,7 +42,7 @@
       // moves links bar to top on small screens
       flex-direction: column-reverse;
       pmp-nav-links-bar {
-        border-bottom: solid vars.$border-sm colors.$gray-700;
+        border-bottom: solid vars.$border-sm rgb(47, 111, 115);
       }
     }
 

@@ -4,7 +4,7 @@
 :host {
   display: flex;
   flex: 0 0 2rem;
-  border-top: solid vars.$border-sm colors.$white;
+  border-top: solid vars.$border-sm rgb(47, 111, 115);
 
   .bottom-bar {
     display: flex;
@@ -15,13 +15,13 @@
   }
 
   @media (max-width: vars.$bp-md) {
-    flex: 0 0 1.5rem;
+    flex: 0 0 1rem;
 
     .bottom-bar {
       flex: 1 1 auto;
       gap: vars.$width-lg;
       padding: 0 vars.$width-md;
-      font-size: small;
+      font-size: x-small;
       justify-content: center;
     }
   }
