@@ -15,7 +15,7 @@ import { Card as CardI } from 'projects/pmp/shared/interfaces/card';
   templateUrl: './card.html',
   styleUrls: ['./card.scss'],
   standalone: true,
-  imports: [LowerCasePipe],
+  imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Card {

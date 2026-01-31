@@ -11,7 +11,7 @@
     flex-direction: column;
     flex: 0 0 $width-links-bar;
     gap: vars.$width-lg;
-    border-left: solid vars.$border-sm colors.$background-color-lighter;
+    border-left: solid vars.$border-sm rgb(47, 111, 115);
     padding: vars.$width-lg vars.$width-lg;
     overflow-x: hidden;
     overflow-y: auto;
@@ -34,9 +34,11 @@
       width: vars.$width-full;
       min-height: vars.$btn-height-wcag;
       height: vars.$btn-height-wcag;
-      background-color: colors.$background-color-main;
-      color: colors.$text-color-main;
-      border: solid vars.$border-md colors.$background-color-more-lighter;
+      background-color: rgb(47, 111, 115);
+      color: colors.$white;
+      // background-color: colors.$background-color-main;
+      // color: colors.$text-color-main;
+      border: solid vars.$border-md rgb(47, 111, 115);
       border-radius: vars.$radius-md;
       display: flex;
 

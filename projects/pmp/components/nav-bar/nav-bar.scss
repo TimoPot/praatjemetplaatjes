@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 vars.$width-lg;
-  border-bottom: solid vars.$border-sm colors.$background-color-lighter;
+  border-bottom: solid vars.$border-sm rgb(47, 111, 115);
 
   min-height: 77px;
   overflow: hidden;
@@ -44,15 +44,17 @@
         max-height: vars.$btn-height-wcag;
         height: vars.$btn-height-wcag;
 
-        background-color: colors.$background-color-main;
-        color: colors.$text-color-main;
-        border: solid vars.$border-md colors.$gray-400;
+        background-color: rgb(47, 111, 115);
+        color: colors.$white;
+
+        // background-color: colors.$background-color-main;
+        // color: colors.$text-color-main;
+        border: solid vars.$border-md rgb(47, 111, 115);
         border-radius: vars.$radius-md;
 
         justify-content: flex-start;
 
         i {
-          transform: scaleX(-1);
           font-size: large;
           width: 40px;
           height: 40px;
@@ -76,6 +78,10 @@
       }
       &.goto-level-button {
         display: flex;
+
+        i {
+          transform: rotate(90deg);
+        }
       }
 
       @media (max-width: vars.$bp-md) {
